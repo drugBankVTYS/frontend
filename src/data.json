@@ -1,0 +1,67 @@
+[
+    {
+      "drug_id": "D001",
+      "drug_name": "Aspirin",
+      "drug_state": "Solid",
+      "drug_kingdom": "Chemical",
+      "drug_superclass": "Benzoic acid",
+      "drug_interactions": ["Ibuprofen", "Paracetamol"],
+      "drug_pathways": ["Metabolic pathway A", "Elimination pathway B"],
+      "drug_toxicity": ["Low toxicity"],
+      "drug_food_interactions": ["Grapefruit juice"],
+      "target_name": "COX-1",
+      "target_uniprot": "P23219",
+      "target_gene_name": "PTGS1",
+      "action": "Inhibition",
+      "cell_loc": "Cytoplasm"
+    },
+    {
+      "drug_id": "D002",
+      "drug_name": "Lisinopril",
+      "drug_state": "Solid",
+      "drug_kingdom": "Chemical",
+      "drug_superclass": "Dipeptide",
+      "drug_interactions": ["Hydrochlorothiazide", "Amlodipine"],
+      "drug_pathways": ["Metabolic pathway C", "Elimination pathway D"],
+      "drug_toxicity": ["Low toxicity"],
+      "drug_food_interactions": ["Bananas"],
+      "target_name": "ACE",
+      "target_uniprot": "P12821",
+      "target_gene_name": "ACE",
+      "action": "Inhibition",
+      "cell_loc": "Cell membrane"
+    },
+    {
+        "drug_id": "D002",
+        "drug_name": "Lisinopril",
+        "drug_state": "Solid",
+        "drug_kingdom": "Chemical",
+        "drug_superclass": "Dipeptide",
+        "drug_interactions": ["Hydrochlorothiazide", "Amlodipine"],
+        "drug_pathways": ["Metabolic pathway C", "Elimination pathway D"],
+        "drug_toxicity": ["Low toxicity"],
+        "drug_food_interactions": ["Bananas"],
+        "target_name": "ACE",
+        "target_uniprot": "P12821",
+        "target_gene_name": "ACE",
+        "action": "Inhibition",
+        "cell_loc": "Cell membrane"
+      },
+      {
+        "drug_id": "D002",
+        "drug_name": "Lisinopril",
+        "drug_state": "Solid",
+        "drug_kingdom": "Chemical",
+        "drug_superclass": "Dipeptide",
+        "drug_interactions": ["Hydrochlorothiazide", "Amlodipine"],
+        "drug_pathways": ["Metabolic pathway C", "Elimination pathway D"],
+        "drug_toxicity": ["Low toxicity"],
+        "drug_food_interactions": ["Bananas"],
+        "target_name": "ACE",
+        "target_uniprot": "P12821",
+        "target_gene_name": "ACE",
+        "action": "Inhibition",
+        "cell_loc": "Cell membrane"
+      }
+  ]
+  
