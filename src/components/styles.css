@@ -2,10 +2,17 @@
     display: flex;
     flex-direction: row;
     margin: auto;
+
 }
 
 .card{
     margin: 40px;
+    margin-top: 250px;
+}
+.card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 .navbar{
     background-color: #9966FF;
@@ -18,3 +25,36 @@
 .btn:hover{
     color: black;
 }
+
+.navbar-brand {
+    font-family: "TİMES", 'Times New Roman', Times, serif; /* Yazı tipini belirlemek için */
+    font-size: 50px; /* Yazı boyutunu belirlemek için */
+    font-weight: bold; /* Yazı kalınlığını belirlemek için */
+    /* Diğer stil özelliklerini buraya ekleyebilirsiniz */
+  }
+  
+  
+  .navbar-brand {
+    margin-bottom: 20px; /* Başlık ile diğer başlıklar arasındaki mesafeyi ayarlamak için */
+  }
+  
+  .navbar-nav .nav-link {
+    margin-bottom: 10px; /* Diğer başlıklar arasındaki mesafeyi ayarlamak için */
+  }
+  
+  .navbar-nav .nav-link {
+    margin-right: 30px; /* Sağ tarafta boşluk bırakmak için */
+  }
+
+  .navbar-brand{
+    margin-right: 100px;
+    margin-left: 30px;
+  }
+  
+  .card-brand{
+    font-family: "TİMES", 'Times New Roman', Times, serif; 
+    font-size: 50px; 
+    font-weight: bold;
+  }
+
+ 
