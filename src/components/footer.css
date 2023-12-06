@@ -1,0 +1,160 @@
+/* footer.css */
+
+
+
+.footer_left {
+  font-size: 20px;
+  text-align: center;
+}
+
+.text_span {
+  font-size: 25px;
+  color: #000000;
+  font-weight: bold;
+}
+
+.footer {
+  background-color: #9999FF;
+  padding: 20px 0; /* Added padding for better spacing */
+  text-align: center; /* Center-align text within the footer */
+}
+
+
+
+#about {
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  padding-right: 15px;
+}
+
+
+
+#about #about_header {
+  text-decoration: none;
+  color: #000000;
+  font-weight: bold;
+  display: block; 
+}
+
+
+
+#about div a {
+  text-decoration: none;
+  color: #333;
+  display: block;
+  margin-bottom: 15px;
+}
+
+#about div a:hover {
+  color: #0077B5;
+}
+
+.column-divider::before {
+  content: '';
+  display: block;
+  height: 100%;
+  width: 1px;
+  background-color: #ccc;
+  margin: 0 auto; /* Center the vertical divider */
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* footer.css */
+
+/* ... (other styles) */
+
+.input-box {
+  display: flex;
+  flex-direction: column; /* Align email and button in a column */
+  align-items: center;
+  margin-top: 10px; /* Added margin for better spacing */
+}
+
+.email {
+  border: 1px solid #ccc;
+  border-radius: 16px;
+  padding: 15px;
+  margin-bottom: 10px; /* Added margin between email input and button */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  width: 100%; /* Set the width to fill the container */
+}
+
+.button {
+  background-color: #0056b3;
+  color: #fff;
+  padding: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  border: 1px solid #ccc;
+  border-radius: 16px;
+  font-size: 16px;
+  width: 100%; /* Set the width to fill the container */
+  text-align: center;
+  box-sizing: border-box;
+  line-height: 30px;
+}
+
+/* ... (other styles) */
+
+
+.github {
+  font-size: 35px;
+}
+
+.social-media {
+  display: flex;
+  align-items: center; /* Center icons vertically */
+  justify-content: center; /* Center icons horizontally */
+  margin-top: 70px;
+}
+
+.social-media a {
+  margin: 0 10px;
+  font-size: 25px;
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  background-color: #333;
+}
+
+/* Varsayılan durumda gri renk */
+.social-media a.linkedn,
+.social-media a.github,
+.social-media a.mail {
+  color: grey;
+}
+
+/* Hover durumunda arkaplan rengi ve simge rengini değiştir */
+.social-media a.linkedn:hover {
+  background-color: #0077B5;
+  color: white;
+}
+
+.social-media a.github:hover {
+  background-color: #000000;
+  color: white;
+}
+
+.social-media a.mail:hover {
+  background-color: #DB4437;
+  color: white;
+}
+
+
+#copy {
+  margin-top: 20px; /* İstediğiniz boşluk değerini ayarlayın */
+}
+
+#copy p {
+  font-weight: bold;
+}

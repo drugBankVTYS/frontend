@@ -3,6 +3,7 @@ import Card from '../../components/Card'
 import Navbar from "../../components/Navbar"
 import "./home.css" 
 import resim from "./images/ilac.png"
+import Footer from '../../components/Footer'
 
 const Home = () => {
   return (
@@ -16,6 +17,7 @@ const Home = () => {
               <img className='medicine-img' alt='a' src={resim}/>
             </div>
            <Card/>
+           <Footer/>
     </div>
   )
 }
