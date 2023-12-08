@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Medicine from './Medicine';
 
 const Navbar = () => {
   return (
@@ -16,7 +17,7 @@ const Navbar = () => {
                 <a className="nav-link active" aria-current="page" href="/">Anasayfa</a>
               </li>
               <li className="nav-item">
-                <button className="nav-link" href="/drug"><Link to="/drug">İlaç Listesi</Link></button>
+               <Link to="/drug"> <button className="nav-link">İlaç Listesi</button></Link>
               </li>
               <li className="nav-item">
                 <a className="nav-link" href="/contact">Hakkımızda</a>
