@@ -1,5 +1,6 @@
 import React from 'react';
 import "./styles.css"
+import { FaLink } from 'react-icons/fa';
 
 const Card = () => { //denemeler
   return (

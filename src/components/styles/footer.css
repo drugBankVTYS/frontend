@@ -1,5 +1,10 @@
 /* footer.css */
-
+:root{
+  --bg-color : #FFFFFF;
+  --second-bg-color :#e5eaf3 ;
+  --text-color : #000000;
+  --main-color : #0ef;
+}
 
 
 .footer_left {
@@ -14,10 +19,12 @@
 }
 
 .footer {
-  background-color: #9999FF;
-  padding: 20px 0; /* Added padding for better spacing */
-  text-align: center; /* Center-align text within the footer */
+  background-color: var(--second-bg-color);
+  padding: 20px 0; 
+  text-align: center; 
 }
+
+
 
 
 
@@ -31,7 +38,7 @@
 
 #about #about_header {
   text-decoration: none;
-  color: #000000;
+  color: var(--text-color);
   font-weight: bold;
   display: block; 
 }
@@ -109,8 +116,8 @@ form {
 
 .social-media {
   display: flex;
-  align-items: center; /* Center icons vertically */
-  justify-content: center; /* Center icons horizontally */
+  align-items: center;
+  justify-content: center; 
   margin-top: 70px;
 }
 

@@ -1,0 +1,34 @@
+/* styles/Heart.css */
+
+.body {
+    background: #212121;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .heart-pulse-monitor {
+    height: 600px;
+    width: 800px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    filter: drop-shadow(0 0 25px #ff0404);
+  }
+  
+  .pathdraw {
+    stroke: #ff0303;
+    fill: transparent;
+    stroke-width: 6px;
+    animation: anim 3s linear infinite; /* Animation duration set to 3 seconds */
+    stroke-dasharray: 2000;
+    stroke-dashoffset: 2000;
+  }
+  
+  @keyframes anim {
+    to {
+      stroke-dashoffset: 0;
+      opacity: 0;
+    }
+  }
+  
