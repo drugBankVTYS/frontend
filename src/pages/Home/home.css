@@ -1,21 +1,189 @@
-.page-content{
-    margin: auto;
-    background-color:#CCCCFF ;
+:root {
+  --bg-color: #ffffff;
+  --second-bg-color: #e5eaf3;
+  --text-color: #000;
+  --main-color: rgb(0, 31, 87);
+  --button-color: #f300da;
+  --button-color2:#e300d4;
 }
-.hero-section{
+
+.page-content {
+  margin: auto;
+  background-color: var(--bg-color);
 }
-.medicine-img{
-    display: flex;
-    justify-content: flex-end;
-    align-self: flex-end;
-    align-content: flex-end;
-    text-align: end;
+
+.medicine-img {
+  display: flex;
+  justify-content: flex-end;
+  align-self: flex-end;
+  align-content: flex-end;
+  text-align: end;
+  margin-right: 120px;
 }
 
 .text-colorful {
-    color: red; /* veya istediğiniz başka bir renk */
+  color: red; /* veya istediğiniz başka bir renk */
+}
+
+.fs-1-container {
+  text-align: center;
+  margin-top: 50px; /* Adjust the margin as needed */
+}
+
+.fs-1 {
+  font-size: 2.5em;
+  color: #333; /* Adjust the text color as needed */
+  font-weight: bolder;
+  position: relative;
+  display: inline-block;
+  margin-left: 40px;
+}
+
+.text-colorful {
+  color: #4caf50; /* Adjust the colorful text color as needed */
+}
+
+.fs-1-container {
+  text-align: center;
+  margin-top: 50px; /* Adjust the margin as needed */
+}
+
+.fs-1 {
+  font-size: 2.5em;
+  color: #333; /* Adjust the text color as needed */
+  font-weight: bolder;
+  position: relative;
+  overflow: hidden;
+}
+
+.text-colorful {
+  color: #4caf50; /* Adjust the colorful text color as needed */
+}
+
+.fs-1-container {
+  text-align: center;
+  margin-top: 50px; /* Adjust the margin as needed */
+}
+
+.fs-1 {
+  font-size: 2.5em;
+  color: rgb(17, 110, 117); /* Adjust the text color as needed */
+  font-weight: bolder;
+  position: relative;
+  overflow: hidden;
+  word-spacing: 0.5em; /* Adjust the space between words as needed */
+}
+
+.text-colorful {
+  color: #ff0000; /* Adjust the colorful text color as needed */
+}
+
+/* Add animation to each word */
+.fs-1 span {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(1em);
+  animation: fadeInUp 0.8s forwards;
+  margin-right: 0.3em; /* Adjust the right margin between letters as needed */
+}
+
+.fs-1 .word {
+  display: inline-block;
+  margin-right: 0.5em; /* Adjust the right margin between words as needed */
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.my-button {
+  position: absolute;
+  left: 0;
+  padding: 10px 20px;
+  margin-top: 250px;
+  margin-left: 70px;
+  border-radius: 8px;
+  background-color: var(--button-color);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  display: flex;
+  align-items: center;
+}
+
+.my-button:hover {
+  background-color: var(--button-color);
+  color: var(--text-color);
+  box-shadow: 0 0 1rem var(--button-color2);
+}
+
+.hero-section {
+  background-color: #ffffff; /* veya istediğiniz bir renk */
+  padding: 40px 0;
+  padding-bottom: 600px;
+}
+
+.card-section {
+  padding: 20px 0; /* Mesafeyi azaltmak için padding değerini düşürün */
+  text-align: center;
+  background-color: var(--second-bg-color);
+}
+#ilaclar{
+  background-color: var(--second-bg-color);
+}
+
+
+
+.card-section.visible h1 {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.heart {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  width: 24px;
+  height: 24px;
+  background-color: red;
+  clip-path: polygon(50% 0%, 100% 34%, 75% 100%, 50% 75%, 25% 100%, 0% 34%);
+  transform: translateX(-50%);
+  animation: heartbeat 1s infinite;
+}
+
+@keyframes heartbeat {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: scale(1);
   }
 
+  40%,
+  60% {
+    transform: scale(1.3);
+  }
+}
 
-  
-  
+.text2 {
+  bottom: 10px;
+}
+
+.info-section {
+  padding: 0 0px;
+  text-align: center;
+  background-color: white;
+  margin-bottom: 0; /* Adjust this value as needed */
+}

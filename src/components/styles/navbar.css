@@ -1,0 +1,50 @@
+.navbar-nav {
+  display: flex;
+  align-items: center;
+}
+
+
+.navbar-nav .nav-link {
+  font-size: 18px; /* Set your desired font size */
+  transition: font-size 0.3s ease-in-out, color 0.3s ease-in-out; /* Add a smooth transition effect */
+  color: #909090;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+  color: #000000; 
+  font-size: 20px; 
+}
+
+
+.nav-link:first-child {
+  margin-left: 0px;
+}
+
+.navbar {
+  border-bottom: 1px solid #000; 
+  box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.1); 
+
+}
+
+.logo {
+  margin-left: 0; /* Logo centerda sabit kalsın */
+}
+
+.btn{
+  background-color: #f300da;
+  color: #FFF;
+}
+
+.btn:hover{
+  background-color: #e300d4;
+  color: #000;
+  box-shadow: 0 0 0.4rem #e300d4;
+}
+
+.search{
+  border-radius: 8px;
+  border-color: #000;
+  border:1px solid #000;
+}
+

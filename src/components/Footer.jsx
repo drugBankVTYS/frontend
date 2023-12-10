@@ -1,13 +1,13 @@
 // Footer.js
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import "./footer.css";
+import "./styles/footer.css";
 import { FaLinkedin, FaGithub, FaEnvelope } from "react-icons/fa";
 
 const Footer = () => {
   return (
     <footer className="mt-5 footer">
-      <Container>
+      <Container className="footer_in">
         <Row>
           {/* Left Section - Email Submission */}
           <Col lg={4} className="text-center border-right">
