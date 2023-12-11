@@ -5,8 +5,8 @@
 
 
 .navbar-nav .nav-link {
-  font-size: 18px; /* Set your desired font size */
-  transition: font-size 0.3s ease-in-out, color 0.3s ease-in-out; /* Add a smooth transition effect */
+  font-size: 18px; 
+  transition: font-size 0.3s ease-in-out, color 0.3s ease-in-out; 
   color: #909090;
 }
 
@@ -28,11 +28,11 @@
 }
 
 .logo {
-  margin-left: 0; /* Logo centerda sabit kalsın */
+  margin-left: 0; 
 }
 
 .btn{
-  background-color: #f300da;
+  background-color: #e300d4;
   color: #FFF;
 }
 

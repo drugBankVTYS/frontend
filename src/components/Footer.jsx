@@ -12,8 +12,8 @@ const Footer = () => {
           {/* Left Section - Email Submission */}
           <Col lg={4} className="text-center border-right">
             <div className="footer_left">
-              Leave your E-mail. <span className="text_span">WE</span> will
-              contact you
+              E-mailinizi yazınız. <span className="text_span">BİZ</span> sizinle
+              iletişime geçelim
             </div>
             {/* Your email form and input elements go here */}
             <form action="#">
