@@ -5,16 +5,12 @@ import resim from "./images/ilac.png";
 import Footer from "../../components/Footer";
 import Info from "../../components/Info";
 import HeartPulseMonitor from "../../components/HeartPulseMonitor";
-import {
-  Link as ScrollLink,
-  Element,
-  Events,
-  animateScroll as scroll,
-} from "react-scroll";
+import { Link as ScrollLink, Element } from "react-scroll";
 import CardDesign from "../../components/CardDesign";
 
 const Home = () => {
   const [isCardSectionVisible, setIsCardSectionVisible] = useState(false);
+  const [animatedText, setAnimatedText] = useState("");
 
   useEffect(() => {
     const handleScroll = () => {
@@ -27,11 +23,23 @@ const Home = () => {
       }
     };
 
+    const handleMouseMove = (e) => {
+      const heroSection = document.querySelector(".hero-section");
+      const parallaxLayer = document.querySelector(".parallax-layer");
+      const moveX = (e.clientX * -1) / 40;
+      const moveY = (e.clientY * -1) / 40;
+      parallaxLayer.style.transform =
+        "translate(" + moveX + "px," + moveY + "px)";
+    };
+
     window.addEventListener("scroll", handleScroll);
-    handleScroll();
+    window.addEventListener("mousemove", handleMouseMove);
+
+    handleScroll(); // İlk durumu kontrol etmek için
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("mousemove", handleMouseMove);
     };
   }, []);
 
@@ -39,38 +47,37 @@ const Home = () => {
     <div className="page-content">
       <Navbar />
       <Element name="anasayfa" className="element">
-        <div
-          className="hero-section"
-          style={{ marginBottom: "50px", position: "relative" }}
-        >
-          <div className="d-flex w-100 flex justify-content-center">
-            <div className="d-flex flex-column justify-content-center align-items-center">
-              <div className="fs-1-container">
-                <div className="fs-1">
-                  <span></span>
-                  <span className="text-colorful">SAĞLIĞINIZ</span>
-                  <span>için</span>
-                  <span>en</span>
-                  <span>doğru</span>
-                  <span>adresdesiniz</span>
+        <div class="parallax-container">
+          <div class="parallax-layer"></div>
+          <div class="content">
+            <div
+              className="hero-section"
+              style={{ marginBottom: "50px", position: "relative" }}
+            >
+              <div className="d-flex w-100 flex justify-content-center">
+                <div className="d-flex flex-column justify-content-center align-items-center">
+                  <div className="fs-1-container">
+                    <div className="fs-1">
+                      <span className="text-colorful">DRUGBANK</span> <br/>
+                      <span className="text2">İlaçların Etkilyeci Dünyasına Hoşgeldiniz</span>
+                    </div>
+                  </div>
+                  <button className="my-button">Hadi bu dünyayı keşfedelim</button>
                 </div>
               </div>
-              <button className="my-button">Daha Fazla Bilgi</button>
+              {/* <div
+                style={{
+                  position: "absolute",
+                  bottom: "180px",
+                  left: "20%",
+                  transform: "translateX(-50%)",
+                }}
+                className="heart1"
+              >
+                <HeartPulseMonitor />
+                <HeartPulseMonitor />
+              </div> */}
             </div>
-            <img className="medicine-img" alt="a" src={resim} />
-          </div>
-
-          <div
-            style={{
-              position: "absolute",
-              bottom: "180px",
-              left: "20%",
-              transform: "translateX(-50%)",
-            }}
-            className="heart1"
-          >
-            <HeartPulseMonitor />
-            <HeartPulseMonitor />
           </div>
         </div>
       </Element>
