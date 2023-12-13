@@ -1,17 +1,21 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "../../components/Navbar";
 import "./home.css";
-import resim from "./images/ilac.png";
 import Footer from "../../components/Footer";
 import Info from "../../components/Info";
-import HeartPulseMonitor from "../../components/HeartPulseMonitor";
 import { Link as ScrollLink, Element } from "react-scroll";
 import CardDesign from "../../components/CardDesign";
+import { Typewriter } from "react-simple-typewriter";
 
 const Home = () => {
   const [isCardSectionVisible, setIsCardSectionVisible] = useState(false);
-  const [animatedText, setAnimatedText] = useState("");
 
+  const handleType = (count) => {
+  };
+
+  const handleDone = () => {
+    console.log("Finish!");
+  };
   useEffect(() => {
     const handleScroll = () => {
       const cardSection = document.querySelector(".card-section");
@@ -35,7 +39,7 @@ const Home = () => {
     window.addEventListener("scroll", handleScroll);
     window.addEventListener("mousemove", handleMouseMove);
 
-    handleScroll(); // İlk durumu kontrol etmek için
+    handleScroll();
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
@@ -58,11 +62,30 @@ const Home = () => {
                 <div className="d-flex flex-column justify-content-center align-items-center">
                   <div className="fs-1-container">
                     <div className="fs-1">
-                      <span className="text-colorful">DRUGBANK</span> <br/>
-                      <span className="text2">İlaçların Etkilyeci Dünyasına Hoşgeldiniz</span>
+                      
+                      <span className="text-colorful" style={{color:"white"}}>
+                        <Typewriter
+                          words={["DRUGBANK"]}
+                          loop={Infinity}
+                          cursor
+                          cursorStyle=""
+                          cursorColor="pink"
+                          typeSpeed={100}
+                          deleteSpeed={100}
+                          delaySpeed={2000}
+                          onLoopDone={handleDone}
+                          onType={handleType}
+                        />
+                      </span>
+                      <br />
+                      <span className="text2">
+                        İlaçların Etkilyeci Dünyasına Hoşgeldiniz
+                      </span>
                     </div>
                   </div>
-                  <button className="my-button">Hadi bu dünyayı keşfedelim</button>
+                  <button className="my-button">
+                    Hadi bu dünyayı keşfedelim
+                  </button>
                 </div>
               </div>
               {/* <div
@@ -88,7 +111,7 @@ const Home = () => {
         </div>
       </Element>
 
-      <Element name="hakkimizda" className="element">
+      <Element name="hakkimizda" className="element info-section" >
         <Info />
       </Element>
 
