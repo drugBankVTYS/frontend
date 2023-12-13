@@ -1,49 +1,35 @@
 /* footer.css */
-:root{
-  --bg-color : #FFFFFF;
-  --second-bg-color :#e5eaf3 ;
-  --text-color : #000000;
-  --main-color : #0ef;
+:root {
+  --bg-color: #ffffff;
+  --second-bg-color: #e5eaf3;
+  --text-color: #000000;
+  --main-color: #0ef;
 }
-
 
 .footer_left {
   font-size: 20px;
   text-align: center;
 }
 
-.text_span {
-  font-size: 25px;
-  color: #000000;
-  font-weight: bold;
-}
-
 .footer {
   background-color: var(--second-bg-color);
-  padding: 20px 0; 
-  text-align: center; 
+  padding: 20px 0;
+  text-align: center;
+  border-top: 1px solid #000000;
 }
-
-
-
-
 
 #about {
-  border-left: 1px solid #ccc;
-  border-right: 1px solid #ccc;
+  border-left: 1px solid #000000;
+  border-right: 1px solid #000000;
   padding-right: 15px;
 }
-
-
 
 #about #about_header {
   text-decoration: none;
   color: var(--text-color);
   font-weight: bold;
-  display: block; 
+  display: block;
 }
-
-
 
 #about div a {
   text-decoration: none;
@@ -53,16 +39,16 @@
 }
 
 #about div a:hover {
-  color: #0077B5;
+  color: #0077b5;
 }
 
 .column-divider::before {
-  content: '';
+  content: "";
   display: block;
   height: 100%;
   width: 1px;
   background-color: #ccc;
-  margin: 0 auto; /* Center the vertical divider */
+  margin: 0 auto;
 }
 
 form {
@@ -71,25 +57,21 @@ form {
   align-items: center;
 }
 
-/* footer.css */
-
-/* ... (other styles) */
-
 .input-box {
   display: flex;
-  flex-direction: column; /* Align email and button in a column */
+  flex-direction: column;
   align-items: center;
-  margin-top: 10px; /* Added margin for better spacing */
+  margin-top: 10px;
 }
 
 .email {
   border: 1px solid #ccc;
   border-radius: 16px;
   padding: 15px;
-  margin-bottom: 10px; /* Added margin between email input and button */
+  margin-bottom: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   box-sizing: border-box;
-  width: 100%; /* Set the width to fill the container */
+  width: 100%;
 }
 
 .button {
@@ -101,14 +83,11 @@ form {
   border: 1px solid #ccc;
   border-radius: 16px;
   font-size: 16px;
-  width: 100%; /* Set the width to fill the container */
+  width: 100%;
   text-align: center;
   box-sizing: border-box;
   line-height: 30px;
 }
-
-/* ... (other styles) */
-
 
 .github {
   font-size: 35px;
@@ -117,7 +96,7 @@ form {
 .social-media {
   display: flex;
   align-items: center;
-  justify-content: center; 
+  justify-content: center;
   margin-top: 70px;
 }
 
@@ -134,16 +113,14 @@ form {
   background-color: #333;
 }
 
-/* Varsayılan durumda gri renk */
 .social-media a.linkedn,
 .social-media a.github,
 .social-media a.mail {
   color: grey;
 }
 
-/* Hover durumunda arkaplan rengi ve simge rengini değiştir */
 .social-media a.linkedn:hover {
-  background-color: #0077B5;
+  background-color: #0077b5;
   color: white;
 }
 
@@ -153,13 +130,12 @@ form {
 }
 
 .social-media a.mail:hover {
-  background-color: #DB4437;
+  background-color: #db4437;
   color: white;
 }
 
-
 #copy {
-  margin-top: 20px; /* İstediğiniz boşluk değerini ayarlayın */
+  margin-top: 20px;
 }
 
 #copy p {

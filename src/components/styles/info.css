@@ -1,11 +1,13 @@
 .info-section {
     padding: 0 0px;
     text-align: center;
-    background-color: white;
-    margin-bottom: 0;
+    background-color: rgb(244, 242, 242);
+    margin-bottom: 50px;
+    margin-top: 140px;
 }
 .info-title-content {
     margin: 64px 0 128px 0;
+    margin-bottom: 10px;
 }
 .info-title {
     font-family: 'Poppins', sans-serif;
@@ -33,6 +35,7 @@
     font-size: 18px;
     letter-spacing: .8px;
     line-height: 1.8rem;
+    font-weight: bold;
 }
 /* Cards */
 .info-cards-content {
