@@ -1,0 +1,110 @@
+.background {
+  background-color: rgb(34, 28, 28);
+}
+
+/* Başlık stilini  */
+header h1 {
+  color: rgb(0, 0, 0);
+  text-align: left;
+  font-family: "Times New Roman", Times, serif;
+  text-align: center;
+  margin-bottom: 0px;
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+header h2 {
+  color: rgb(0, 0, 0);
+  text-align: left;
+  font-family: "Times New Roman", Times, serif;
+  text-align: center;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  font-weight: bold;
+  text-shadow: 50px 50px 100px rgba(52, 0, 143, 0.3);
+}
+
+/* Özel stiller */
+.input-group {
+  max-width: 1000px;
+  height: 100px;
+  margin: 0 auto;
+}
+
+/* Arama kutusu  */
+.form-control {
+  border-width: 5px;
+  border-radius: 1040px;
+  transition: border-color 0.3s ease;
+  border-color: #e300d4;
+  border-right: 0px solid #fff;
+}
+
+/* Arama butonu  */
+.btn_search_section {
+  width: 80px;
+  height: 100px;
+  border-top-right-radius: 1040px;
+  border-bottom-right-radius: 1040px;
+  border-left: #fff;
+  border-width: 5px;
+  border-color: #e300d4;
+  color: #e300d4;
+  background-color: #fff;
+}
+
+.images-section img {
+  width: 200px;
+  height: 200px;
+  margin: 10px;
+}
+
+/* Özel buton  */
+.custom-btn {
+  margin-top: 10px;
+  border-radius: 20px;
+}
+
+/* İlk butonun  */
+.btn-primary.custom-btn {
+  background-color: #e300d4 !important;
+  color: white;
+  margin-left: 200px;
+  width: 150px;
+  margin-bottom: 20px;
+}
+
+/* İkinci butonun  */
+.btn-secondary.custom-btn {
+  background-color: #e300d4 !important;
+  color: white;
+  margin-left: 50px;
+  width: 150px;
+  margin-bottom: 20px;
+}
+
+/* Üçüncü butonun  */
+.btn-success.custom-btn {
+  background-color: #e300d4 !important;
+  color: white;
+  margin-left: 50px;
+  width: 150px;
+  margin-bottom: 20px;
+}
+
+i {
+  color: aliceblue;
+}
+
+input:focus {
+  border: 2px solid #e300d4 !important;
+  background-color: #fff !important;
+}
+
+.drugs-page {
+  margin-top: 120px;
+}
+
+.search_button_search_section {
+  font-size: 24px;
+}

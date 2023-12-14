@@ -6,12 +6,12 @@ import Info from "../../components/Info";
 import { Link as ScrollLink, Element } from "react-scroll";
 import CardDesign from "../../components/CardDesign";
 import { Typewriter } from "react-simple-typewriter";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   const [isCardSectionVisible, setIsCardSectionVisible] = useState(false);
 
-  const handleType = (count) => {
-  };
+  const handleType = (count) => {};
 
   const handleDone = () => {
     console.log("Finish!");
@@ -62,8 +62,10 @@ const Home = () => {
                 <div className="d-flex flex-column justify-content-center align-items-center">
                   <div className="fs-1-container">
                     <div className="fs-1">
-                      
-                      <span className="text-colorful" style={{color:"white"}}>
+                      <span
+                        className="text-colorful"
+                        style={{ color: "white" }}
+                      >
                         <Typewriter
                           words={["DRUGBANK"]}
                           loop={Infinity}
@@ -84,22 +86,10 @@ const Home = () => {
                     </div>
                   </div>
                   <button className="my-button">
-                    Hadi bu dünyayı keşfedelim
+                    <Link to="/drug">Hadi bu dünyayı keşfedelim</Link>
                   </button>
                 </div>
               </div>
-              {/* <div
-                style={{
-                  position: "absolute",
-                  bottom: "180px",
-                  left: "20%",
-                  transform: "translateX(-50%)",
-                }}
-                className="heart1"
-              >
-                <HeartPulseMonitor />
-                <HeartPulseMonitor />
-              </div> */}
             </div>
           </div>
         </div>
@@ -111,7 +101,7 @@ const Home = () => {
         </div>
       </Element>
 
-      <Element name="hakkimizda" className="element info-section" >
+      <Element name="hakkimizda" className="element info-section">
         <Info />
       </Element>
 
