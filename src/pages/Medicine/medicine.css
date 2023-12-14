@@ -1,0 +1,51 @@
+/* styles.css */
+
+body {
+    background-color: #f6f6f6; /* Gri tonunda arka plan rengi */
+}
+.card-medicine {
+   
+    border: 5px solid rgb(249, 97, 252); /* 2 piksel kalınlığında siyah renkli kenarlık */
+    border-radius: 20px; /* Köşeleri yuvarlatma */
+    padding: 32px; /* İçeriği kenarlıklardan ayırmak için iç boşluk */
+margin-top: 150px;
+margin-left: 5px;
+margin-right: 5px;
+    font-weight: bold; /* Yazıları kalın yap */
+    /*margin: 100px; /* Kartlar arasındaki boşluğu ayarlayın */
+
+     /*width: 2000rem; */ 
+    transition: transform 0.5s ease-in-out; /* Animasyon için geçiş efekti ekleyin */
+  }
+  
+  .card:hover {
+    transform: scale(1.1); /* Fare kartın üzerine geldiğinde ölçeklendirme yapın */
+
+    box-shadow: 0 0 10px rgba(103, 2, 99, 0.9); /* Fare kartın üzerine geldiğinde gölge efekti ekleyin */
+  }
+  .row {
+    margin: 1px; /* Kartların arasındaki boşluğu negatif margin ile azaltın */
+}
+  
+.card div,
+.card h2,
+.card p,
+.card h3 {
+    font-family: 'Open Sans', sans-serif; /* Örnek bir font türü, ihtiyaca göre değiştirilebilir */
+    color: rgb(0, 0, 0); /* Yazı rengi */
+    font-size: 24px; /* Yazı boyutu */
+    /* Diğer stil özelliklerini buraya ekleyebilirsiniz */
+}
+
+.pagination{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 30px;
+}
+
+
+.page-link{
+  background-color:  rgb(249, 97, 252);
+  color: #f6f6f6;
+}
