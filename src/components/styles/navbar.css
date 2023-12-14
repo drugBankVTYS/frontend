@@ -29,7 +29,7 @@
 }
 
 .btn {
-  background-color: #e300d4;
+  background-color: #e300d4 !important  ;
   color: #fff;
 }
 
