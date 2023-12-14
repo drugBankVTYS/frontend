@@ -20,7 +20,14 @@ const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light fixed-top">
       <div className="container-fluid">
-        <Link className="navbar-brand logo" to="/" onClick={() => { scrollToTop(); handleLinkClick("anasayfa"); }}>
+        <Link
+          className="navbar-brand logo"
+          to="/"
+          onClick={() => {
+            scrollToTop();
+            handleLinkClick("anasayfa");
+          }}
+        >
           <img
             className="drugbank-img rounded"
             alt="DrugBank Logo"
@@ -47,7 +54,9 @@ const Navbar = () => {
             smooth={true}
             offset={-70}
             duration={500}
-            className={`nav-link ${activeLink === "ilac-listesi" ? "active" : ""}`}
+            className={`nav-link ${
+              activeLink === "ilac-listesi" ? "active" : ""
+            }`}
             onClick={() => handleLinkClick("ilac-listesi")}
           >
             İlaç Listesi
@@ -58,7 +67,9 @@ const Navbar = () => {
             smooth={true}
             offset={-70}
             duration={500}
-            className={`nav-link ${activeLink === "hakkimizda" ? "active" : ""}`}
+            className={`nav-link ${
+              activeLink === "hakkimizda" ? "active" : ""
+            }`}
             onClick={() => handleLinkClick("hakkimizda")}
           >
             Hakkımızda
