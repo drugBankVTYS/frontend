@@ -4,6 +4,7 @@ import Navbar from "../../components/Navbar";
 import "../../components/styles.css";
 import "./medicine.css";
 import SearchSection from "../../components/SearchSection";
+import { Link } from 'react-router-dom';
 
 function Medicine() {
   const [currentPage, setCurrentPage] = useState(1);
@@ -19,12 +20,18 @@ function Medicine() {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get(`http://localhost:3001/api/alldrugs?pageNumber=${currentPage}`);
+      const response = await axios.get(
+        `http://localhost:3001/api/alldrugs?pageNumber=${currentPage}`
+      );
       setData(response.data.drugs);
       setTotalPages(Math.ceil(response.data.count / datasPerPage));
     } catch (error) {
       console.error("Error fetching data:", error.response || error);
     }
+  };
+
+  const handleCardClick = (drugId) => {
+    console.log(`Card clicked with drugId: ${drugs._id}`);
   };
 
   function prePage() {
@@ -63,16 +70,21 @@ function Medicine() {
       </div>
       <div className="row">
         {data.map((datas) => (
-          <div key={datas.drug_id} className="d-flex justify-content-center col-4">
-            <div className="card-medicine" style={{ width: "30rem" }}>
-              <div>{datas.drug_name}</div>
-              <h2>{datas.drug_name}</h2>
-              <p>Drug ID: {datas.drug_id}</p>
-              <p>Drug State: {datas.drug_state}</p>
-              <h3>Target Information</h3>
-              <p>Target Name: {datas.target_name}</p>
-              <p>Target UniProt: {datas.target_uniprot}</p>
-            </div>
+          <div
+            key={datas.drug_id}
+            className="d-flex justify-content-center col-4"
+          >
+            <Link to={`/drug_detail/${datas._id}`}>
+              <div className="card-medicine" style={{ width: "30rem" }}>
+                <div>{datas.drug_name}</div>
+                <h2>{datas.drug_name}</h2>
+                <p>Drug ID: {datas.drug_id}</p>
+                <p>Drug State: {datas.drug_state}</p>
+                <h3>Target Information</h3>
+                <p>Target Name: {datas.target_name}</p>
+                <p>Target UniProt: {datas.target_uniprot}</p>
+              </div>
+            </Link>
           </div>
         ))}
       </div>
@@ -83,7 +95,10 @@ function Medicine() {
           </a>
         </li>
         {getPageNumbers().map((n, i) => (
-          <li className={`page-item ${currentPage === n ? "activep" : ""}`} key={i}>
+          <li
+            className={`page-item ${currentPage === n ? "activep" : ""}`}
+            key={i}
+          >
             <a href="#" className="page-link" onClick={() => changePage(n)}>
               {" "}
               {n}{" "}
