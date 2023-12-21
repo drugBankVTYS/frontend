@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Link as ScrollLink, animateScroll as scroll } from "react-scroll";
-import drugbank from "./images/drugbank2.png";
+import MedSoft from "./images/MedSoft.png";
 import "./styles/navbar.css";
 import { useLocation } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import axios from "axios";
 
 const Navbar = () => {
   const location = useLocation();
@@ -15,6 +17,35 @@ const Navbar = () => {
 
   const handleLinkClick = (link) => {
     setActiveLink(link);
+  };
+
+  const [name, setName] = useState("");
+  const [data, setData] = useState("");
+
+  useEffect(() => {
+    fetchData(name);
+  }, [name]);
+
+  let isFetching = false; // Bu değişken, bir istek yapılırken bir daha istek yapılmamasını sağlar.
+
+  const fetchData = async (name) => {
+    try {
+      if (isFetching) {
+        return;
+      }
+
+      isFetching = true;
+      console.log(name);
+      const response = await fetch(
+        `http://localhost:3001/api/showdrug?name=${name}`
+      );
+      const data = await response.json();
+      setData(data.drugs[0]._id);
+    } catch (error) {
+      console.error("Error fetching data:", error.response || error);
+    } finally {
+      isFetching = false;
+    }
   };
 
   return (
@@ -31,8 +62,8 @@ const Navbar = () => {
           <img
             className="drugbank-img rounded"
             alt="DrugBank Logo"
-            src={drugbank}
-            style={{ width: "200px", height: "40px", margin: "0" }}
+            src={MedSoft}
+            style={{ width: "133px", height: "85px", marginTop: "20px" }}
           />
         </Link>
 
@@ -93,10 +124,17 @@ const Navbar = () => {
             type="search"
             placeholder="Search"
             aria-label="Search"
+            onChange={(e) => setName(e.target.value)}
           />
-          <button className="btn " type="submit">
-            Search
-          </button>
+          <Link to={`/drug_detail/${data}`}>
+            <button
+              className="btn"
+              type="submit"
+              onClick={() => fetchData(name)}
+            >
+              Search
+            </button>
+          </Link>
         </div>
       </div>
     </nav>
