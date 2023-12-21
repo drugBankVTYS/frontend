@@ -1,0 +1,27 @@
+.loading-screen {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 9999;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 20px;
+  border-radius: 10px;
+}
+
+  .loading-spinner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .loading-screen.hidden {
+    opacity: 0;
+    pointer-events: none; /* Arkaplandaki içeriğe tıklanabilirliği önlemek için */
+  }
+  
+  .loading-screen.visible {
+    opacity: 1;
+  }
+  

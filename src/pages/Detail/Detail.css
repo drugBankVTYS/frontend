@@ -1,0 +1,163 @@
+/* Detail.css */
+
+.card_super_class {
+  display: flex;
+  align-items: center;
+}
+
+.rounded-circle-container {
+  border-radius: 50%;
+}
+
+.rounded-circle-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.card_on_orbit {
+  position: relative;
+  margin-left: 40px;
+  transform-origin: 0% 50%;
+}
+
+.card_super_class #first_card {
+  margin-left: -20px;
+}
+
+.card_super_class #second_card {
+  margin-left: 40px;
+}
+
+.card_super_class #third_card {
+  margin-left: 80px;
+}
+
+.card_super_class #fourth_card {
+  margin-left: 40px;
+}
+
+.card_super_class #fifth_card {
+  margin-left: -20px;
+}
+
+.card_super_class {
+  margin-top: 120px;
+}
+
+@keyframes rotateColors {
+  0% {
+    border-color: #c70101;
+  }
+  25% {
+    border-color: #a70000;
+  }
+  50% {
+    border-color: #930000;
+  }
+  75% {
+    border-color: #660000;
+  }
+  100% {
+    border-color: #530000;
+  }
+}
+
+.card_super_class .rounded {
+  animation: rotateColors 5s infinite linear;
+}
+
+.cell_section {
+  margin-top: 200px;
+  display: flex;
+  align-items: center;
+}
+
+.cell_section .rounded {
+  animation: rotateColors 5s infinite linear;
+  border: 1px solid;
+}
+
+.cell_section .rounded-circle-container {
+  border-radius: 50%;
+}
+
+.cell_section .rounded-circle-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.cell_section #first_card {
+  margin-right: -20px;
+}
+
+.cell_section #second_card {
+  margin-right: 40px;
+}
+
+.cell_section #third_card {
+  margin-right: 80px;
+}
+
+.cell_section #fourth_card {
+  margin-right: 40px;
+}
+
+.cell_section #fifth_card {
+  margin-right: -20px;
+}
+
+.cell_section .rounded-circle-container {
+  border-radius: 50%;
+}
+
+.cell_section .rounded-circle-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.cell_section .card_on_orbit {
+  position: relative;
+  margin-left: 60px;
+  transform-origin: 0% 50%;
+}
+
+.info_section {
+  margin-top: 200px;
+}
+
+.info_section .drug_card {
+  animation: rotateColors 5s infinite linear;
+  border: 1px solid;
+}
+
+.info_section .drug_card .title{
+    font-weight: bold;
+    color: #000;
+    font-size: 30px;
+}
+
+.drug_card .detail_button {
+    width: auto;
+    height: 40px;
+    color: #fff;
+    text-align: center;
+    font-weight: bold;
+    margin-top: 10px;
+    ; 
+}
+
+.drug_card .detail_button:hover {
+    background-color: #efefef;
+}
+
+.drug_card .modal-dialog .modal-content {
+    max-width: 800px;
+    width: 100%;
+}
+

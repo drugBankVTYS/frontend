@@ -45,3 +45,12 @@ body {
 .search_section {
   margin-top: 120px;
 }
+
+
+.loading-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  margin-top: 200px;
+}
