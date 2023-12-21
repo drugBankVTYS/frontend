@@ -11,8 +11,9 @@ const DrugDetail = () => {
   const { id } = useParams();
 
   useEffect(() => {
-    fetchData(id); // id'yi fetchData fonksiyonuna ilet
-  }, [id]); // useEffect'in bağımlılık dizisi içine id ekleyerek id değiştiğinde useEffect'in tekrar çalışmasını sağla
+    fetchData(id); 
+    window.scrollTo(0, 0);
+  }, [id]); 
 
   const fetchData = async (id) => {
     try {
@@ -64,7 +65,7 @@ const DrugDetail = () => {
           />
         </Col>
 
-        <Col md={6}>
+        <Col md={6} >
           <Card className="drug_card mt-5 rounded title" id="first_card">
             <Card.Body>
               <Card.Title>İlaç ID : {data.drug_id}</Card.Title>

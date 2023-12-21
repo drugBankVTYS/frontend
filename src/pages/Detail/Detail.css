@@ -48,19 +48,19 @@
 
 @keyframes rotateColors {
   0% {
-    border-color: #ff3636;
+    border-color: #c70101;
   }
   25% {
-    border-color: #f62f2f;
+    border-color: #a70000;
   }
   50% {
-    border-color: #ff1919;
+    border-color: #930000;
   }
   75% {
-    border-color: #f90f0f;
+    border-color: #660000;
   }
   100% {
-    border-color: #ff0000;
+    border-color: #530000;
   }
 }
 
@@ -160,3 +160,4 @@
     max-width: 800px;
     width: 100%;
 }
+
