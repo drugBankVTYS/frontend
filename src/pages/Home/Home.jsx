@@ -47,9 +47,16 @@ const Home = () => {
     };
   }, []);
 
+
+  const handleSearch = (name) => {
+    // Burada ismi alabilir ve Medicine bileşenine iletebilirsiniz
+    console.log("Girilen İsim:", name);
+
+  };
+
   return (
     <div className="page-content">
-      <Navbar />
+      <Navbar onSearch={handleSearch}/>
       <Element name="anasayfa" className="element">
         <div class="parallax-container">
           <div class="parallax-layer"></div>
