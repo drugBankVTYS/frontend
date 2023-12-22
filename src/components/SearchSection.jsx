@@ -1,8 +1,43 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./styles/SearchSection.css";
 import { FaSearch } from "react-icons/fa";
 
 const SearchSection = () => {
+  const [searchText, setSearchText] = useState("");
+  const [placeholderText, setPlaceholderText] = useState("");
+  const typewriterTexts = ["Ara...", "İlaçlar...", "Moleküller Yapılar...", "Alerjiler..."];
+  const [typewriterIndex, setTypewriterIndex] = useState(0);
+  const [selectedOption, setSelectedOption] = useState(null);
+
+  const secenekSec = (option) => {
+    setSelectedOption(option);
+  };
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setTypewriterIndex((prevIndex) => (prevIndex + 1) % typewriterTexts.length);
+    }, 2000);
+
+    return () => clearInterval(interval);
+  }, [typewriterTexts.length]);
+
+  useEffect(() => {
+    const typingInterval = setInterval(() => {
+      const currentText = typewriterTexts[typewriterIndex];
+      setPlaceholderText((prevText) => {
+        if (prevText === currentText) {
+          clearInterval(typingInterval);
+          setTimeout(() => setPlaceholderText(""), 1000);
+        } else {
+          return currentText.substring(0, prevText.length + 1);
+        }
+        return prevText;
+      });
+    }, 100);
+
+    return () => clearInterval(typingInterval);
+  }, [typewriterIndex, typewriterTexts]);
+
   const aramaYap = () => {
     const input = document.getElementById("searchInput").value;
     console.log("Arama yapılıyor: " + input);
@@ -11,41 +46,45 @@ const SearchSection = () => {
   return (
     <div className="drugs-page">
       <header>
-        <h1>DrugBank Online'da 500.000'den Fazla</h1>
-        <h2>İlaç ve İlaç Ürününü Arayın...</h2>
+        <h1>MedSoft'da 10.000 ilaçtan</h1>
+        <h3>Dilediğinizi arayın...</h3>
       </header>
 
-      <div class="background"></div>
+      <div className="background"></div>
 
-      <div class="input-group mb-3 search_section_input">
+      <div className="search-box">
         <input
           type="text"
-          class="form-control"
-          placeholder=""
+          className="search-input"
+          placeholder={typewriterTexts[typewriterIndex]}
           aria-label="Search"
-          id="searchInput"
+          value={searchText}
+          onChange={(e) => setSearchText(e.target.value)}
         />
-        <div class="input-group-append">
-          <button
-            class="btn_search_section btn-outline-success"
-            type="button"
-            onclick={aramaYap}
-          >
-            <FaSearch className="search_button_search_section" />
-          </button>
+        <div className="search-icon" onClick={aramaYap}>
+          <FaSearch />
         </div>
+      </div>
 
-        <div class="container">
-          <button type="button" class="btn btn-primary custom-btn mt-3">
-            Moleküler Yapı
-          </button>
-          <button type="button" class="btn btn-secondary custom-btn mt-3">
-            İlaçlar
-          </button>
-          <button type="button" class="btn btn-success custom-btn mt-3">
-            Alerji
-          </button>
-        </div>
+      <div className="options">
+        <button
+          className={`option ${selectedOption === "ilaç" ? "selected" : ""}`}
+          onClick={() => secenekSec("ilaç")}
+        >
+          İlaç
+        </button>
+        <button
+          className={`option ${selectedOption === "molekül" ? "selected" : ""}`}
+          onClick={() => secenekSec("molekül")}
+        >
+          Molekül
+        </button>
+        <button
+          className={`option ${selectedOption === "alerji" ? "selected" : ""}`}
+          onClick={() => secenekSec("alerji")}
+        >
+          Alerji
+        </button>
       </div>
     </div>
   );

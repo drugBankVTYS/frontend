@@ -92,7 +92,7 @@ function Medicine (props)  {
         </div>
       ) : (
         <>
-          <div className="serach_section">
+          <div className="search_section">
             <SearchSection />
           </div>
           <div className="content-wrapper">
