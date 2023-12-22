@@ -1,8 +1,3 @@
-.background {
-  background-color: rgb(34, 28, 28);
-}
-
-/* Başlık stilini  */
 header h1 {
   color: rgb(0, 0, 0);
   text-align: left;
@@ -24,87 +19,81 @@ header h2 {
   text-shadow: 50px 50px 100px rgba(52, 0, 143, 0.3);
 }
 
-/* Özel stiller */
-.input-group {
-  max-width: 1000px;
-  height: 100px;
-  margin: 0 auto;
-}
-
-/* Arama kutusu  */
-.form-control {
-  border-width: 5px;
-  border-radius: 1040px;
-  transition: border-color 0.3s ease;
-  border-color: #e300d4;
-  border-right: 0px solid #fff;
-}
-
-/* Arama butonu  */
-.btn_search_section {
-  width: 80px;
-  height: 100px;
-  border-top-right-radius: 1040px;
-  border-bottom-right-radius: 1040px;
-  border-left: #fff;
-  border-width: 5px;
-  border-color: #e300d4;
-  color: #e300d4;
-  background-color: #fff;
-}
-
-.images-section img {
-  width: 200px;
-  height: 200px;
-  margin: 10px;
-}
-
-/* Özel buton  */
-.custom-btn {
-  margin-top: 10px;
-  border-radius: 20px;
-}
-
-/* İlk butonun  */
-.btn-primary.custom-btn {
-  background-color: #e300d4 !important;
-  color: white;
-  margin-left: 200px;
-  width: 150px;
-  margin-bottom: 20px;
-}
-
-/* İkinci butonun  */
-.btn-secondary.custom-btn {
-  background-color: #e300d4 !important;
-  color: white;
-  margin-left: 50px;
-  width: 150px;
-  margin-bottom: 20px;
-}
-
-/* Üçüncü butonun  */
-.btn-success.custom-btn {
-  background-color: #e300d4 !important;
-  color: white;
-  margin-left: 50px;
-  width: 150px;
-  margin-bottom: 20px;
-}
-
-i {
-  color: aliceblue;
-}
-
-input:focus {
-  border: 2px solid #e300d4 !important;
-  background-color: #fff !important;
+.search_button_search_section {
+  font-size: 24px;
 }
 
 .drugs-page {
-  margin-top: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 50px;
 }
 
-.search_button_search_section {
+header {
+  text-align: center;
   font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+}
+
+.search-input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #000;
+  font-weight: bold;
+  font-size: larger;
+  outline: none;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border-right: none;
+  width: 700px;
+  height: 60px;
+}
+
+.search-icon {
+  background-color: #f82727;
+  color: white;
+  padding: 10px;
+  padding-left: 18px;
+  border-radius: 0 20px 20px 0;
+  height: 60px;
+  width: 60px;
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  margin-left: -1px;
+}
+
+.options {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.option {
+  flex: 1;
+  width: 120px;
+  padding: 10px 20px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  border-radius: 20px;
+  background-color: #cbcaca;
+  color: white;
+  font-size: 16px;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.option:hover {
+  background-color: #fb7e7e;
+}
+
+.selected {
+  background-color: #d00000;
 }
