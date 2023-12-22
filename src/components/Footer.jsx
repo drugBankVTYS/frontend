@@ -9,26 +9,26 @@ const Footer = () => {
     <footer className="mt-5 footer">
       <Container className="footer_in">
         <Row>
-          {/* Left Section - Email Submission */}
+         
           <Col lg={4} className="text-center border-right">
             <div className="footer_left">
-              E-mailinizi yazınız, biz sizinle
+              Mailinizi yazınız, biz sizinle
               iletişime geçelim
             </div>
-            {/* Your email form and input elements go here */}
+           
             <form action="#">
               <div className="input-box">
                 <input
                   className="email"
                   type="text"
-                  placeholder="Email Address"
+                  placeholder="medsoft@gmail.com"
                 />
-                <input type="submit" value="Submit" className="button" />
+                <input type="submit" value="Gönder" className="button" />
               </div>
             </form>
           </Col>
 
-          {/* Center Section - About */}
+          
           <Col lg={4} className="text-center border-right" id="about">
             <h3 id="about_header">Daha fazla bilgi</h3>
             <div id="about_section">
@@ -38,7 +38,6 @@ const Footer = () => {
             </div>
           </Col>
 
-          {/* Right Section - Social Media */}
           <Col lg={4} className="text-center">
             <div className="social-media">
               <a href="your-linkedin-profile" className="linkedn">

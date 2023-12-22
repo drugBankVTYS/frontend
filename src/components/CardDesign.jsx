@@ -1,8 +1,18 @@
 import React from "react";
 import "./styles/cardDesign.css";
 import { FaLink } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 const CardDesign = () => {
+  const navigate = useNavigate();
+
+  const handleSearch = () => {
+    // Medicine sayfasına yönlendir
+    navigate(`/drug`);
+  };
+  
+
+
   return (
     <div
       className="cards-section w-100 flex flex-column align-items-center portfolio"
@@ -20,7 +30,7 @@ const CardDesign = () => {
             <h4>İlaçlar</h4>
             <p>İlaçlar ve onların etken maddeleri hakkında daha fazla bilgi için tıklayınız</p>
             <div className="circle-icon">
-              <FaLink  /> 
+              <FaLink onClick={handleSearch} /> 
             </div>
           </div>
         </div>
@@ -35,7 +45,7 @@ const CardDesign = () => {
             <h4>Moleküler Yapı</h4>
             <p>İlacın moleküler yapısını gözlemlemek için tıklayınız</p>
             <div className="circle-icon">
-              <FaLink /> 
+              <FaLink onClick={handleSearch} /> 
             </div>
           </div>
         </div>
@@ -50,7 +60,7 @@ const CardDesign = () => {
             <h4>Alerji</h4>
             <p>Hangi ilacın ne tarz alerjik reaksiyonlar verdiğini öğrenmek ve keşfetmek için tıklayınız</p>
             <div className="circle-icon">
-              <FaLink  /> 
+              <FaLink onClick={handleSearch} /> 
             </div>
           </div>
         </div>
