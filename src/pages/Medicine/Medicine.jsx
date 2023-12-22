@@ -4,15 +4,20 @@ import Navbar from "../../components/Navbar";
 import "../../components/styles.css";
 import "./medicine.css";
 import SearchSection from "../../components/SearchSection";
-import { Link } from "react-router-dom";
-import { RingLoader } from "react-spinners";
+import { Link, useParams  } from "react-router-dom";
 import LoadingScreen from "../../components/LoadingScreen";
+import { useLocation } from 'react-router-dom';
 
-function Medicine() {
+function Medicine (props)  {
   const [currentPage, setCurrentPage] = useState(1);
   const [data, setData] = useState([]);
   const [totalPages, setTotalPages] = useState(1);
   const [isLoading, setIsLoading] = useState(true);
+
+  const location = useLocation();
+  const queryParams = new URLSearchParams(location.search);
+  const drugName = queryParams.get('q');
+
 
   const datasPerPage = 10;
   const pagesToShow = 10;
@@ -23,12 +28,21 @@ function Medicine() {
 
   const fetchData = async () => {
     try {
-      setIsLoading(true);
+      if(!drugName){
+        setIsLoading(true);
       const response = await axios.get(
         `http://localhost:3001/api/alldrugs?pageNumber=${currentPage}`
       );
       setData(response.data.drugs);
       setTotalPages(Math.ceil(response.data.count / datasPerPage));
+      }  else{
+        setIsLoading(true);
+        const response = await axios.get(
+          `http://localhost:3001/api/showdrug?name=${drugName}`
+        );
+        setData(response.data.drugs);
+        setTotalPages(Math.ceil(response.data.count / datasPerPage));
+      }
     } catch (error) {
       console.error("Error fetching data:", error.response || error);
     } finally {
@@ -70,8 +84,7 @@ function Medicine() {
 
   return (
     <div >
-      <Navbar />
-
+     
       {isLoading ? (
         // Loading durumu
         <div className="loading-container">

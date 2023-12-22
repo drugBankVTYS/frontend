@@ -4,10 +4,9 @@ import { Link as ScrollLink, animateScroll as scroll } from "react-scroll";
 import MedSoft from "./images/MedSoft.png";
 import "./styles/navbar.css";
 import { useLocation } from "react-router-dom";
-import { useParams } from "react-router-dom";
-import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
-const Navbar = () => {
+const Navbar = ({ onSearch }) => {
   const location = useLocation();
   const [activeLink, setActiveLink] = useState("anasayfa");
 
@@ -20,32 +19,11 @@ const Navbar = () => {
   };
 
   const [name, setName] = useState("");
-  const [data, setData] = useState("");
+  const navigate = useNavigate();
 
-  useEffect(() => {
-    fetchData(name);
-  }, [name]);
-
-  let isFetching = false; // Bu değişken, bir istek yapılırken bir daha istek yapılmamasını sağlar.
-
-  const fetchData = async (name) => {
-    try {
-      if (isFetching) {
-        return;
-      }
-
-      isFetching = true;
-      console.log(name);
-      const response = await fetch(
-        `http://localhost:3001/api/showdrug?name=${name}`
-      );
-      const data = await response.json();
-      setData(data.drugs[0]._id);
-    } catch (error) {
-      console.error("Error fetching data:", error.response || error);
-    } finally {
-      isFetching = false;
-    }
+  const handleSearch = () => {
+    // Medicine sayfasına yönlendir
+    navigate(`/drug?q=${name}`);
   };
 
   return (
@@ -126,15 +104,9 @@ const Navbar = () => {
             aria-label="Search"
             onChange={(e) => setName(e.target.value)}
           />
-          <Link to={`/drug_detail/${data}`}>
-            <button
-              className="btn"
-              type="submit"
-              onClick={() => fetchData(name)}
-            >
-              Search
-            </button>
-          </Link>
+          <button className="btn" type="submit" onClick={handleSearch}>
+            Search
+          </button>
         </div>
       </div>
     </nav>
