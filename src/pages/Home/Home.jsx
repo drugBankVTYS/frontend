@@ -111,7 +111,7 @@ const Home = () => {
         <Info />
       </Element>
 
-      <Element name="iletisim" className="element">
+      <Element name="iletisim" className="element iletisim">
         <Footer />
       </Element>
     </div>

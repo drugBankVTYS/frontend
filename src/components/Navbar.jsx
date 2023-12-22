@@ -2,14 +2,18 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Link as ScrollLink, animateScroll as scroll } from "react-scroll";
 import MedSoft from "./images/MedSoft.png";
+import { FaHome, FaList, FaInfo, FaPhone, FaSearch } from "react-icons/fa";
 import "./styles/navbar.css";
 import { useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import { FaSearch } from "react-icons/fa";
 
 const Navbar = ({ onSearch }) => {
   const location = useLocation();
   const [activeLink, setActiveLink] = useState("anasayfa");
+
+  useEffect(() => {
+    setActiveLink(location.pathname.replace("/", ""));
+  }, [location.pathname]);
 
   const scrollToTop = () => {
     scroll.scrollToTop();
@@ -23,8 +27,18 @@ const Navbar = ({ onSearch }) => {
   const navigate = useNavigate();
 
   const handleSearch = () => {
-    // Medicine sayfasına yönlendir
     navigate(`/drug?q=${name}`);
+  };
+
+  const menuItems = [
+    { icon: <FaHome />, label: "Anasayfa", target: "anasayfa" },
+    { icon: <FaList />, label: "İlaçlar", target: "ilac-listesi" },
+    { icon: <FaInfo />, label: "Hakkımızda", target: "hakkimizda" },
+    { icon: <FaPhone />, label: "İletişim", target: "iletisim" },
+  ];
+
+  const handleSetActive = (target) => {
+    setActiveLink(target);
   };
 
   return (
@@ -47,57 +61,25 @@ const Navbar = ({ onSearch }) => {
         </Link>
 
         <div className="navbar-nav">
-          <ScrollLink
-            to="anasayfa"
-            spy={true}
-            smooth={true}
-            offset={-70}
-            duration={500}
-            className={`nav-link ${activeLink === "anasayfa" ? "active" : ""}`}
-            onClick={() => handleLinkClick("anasayfa")}
-          >
-            Anasayfa
-          </ScrollLink>
-          <ScrollLink
-            to="ilac-listesi"
-            spy={true}
-            smooth={true}
-            offset={-70}
-            duration={500}
-            className={`nav-link ${
-              activeLink === "ilac-listesi" ? "active" : ""
-            }`}
-            onClick={() => handleLinkClick("ilac-listesi")}
-          >
-            İlaç Listesi
-          </ScrollLink>
-          <ScrollLink
-            to="hakkimizda"
-            spy={true}
-            smooth={true}
-            offset={-70}
-            duration={500}
-            className={`nav-link ${
-              activeLink === "hakkimizda" ? "active" : ""
-            }`}
-            onClick={() => handleLinkClick("hakkimizda")}
-          >
-            Hakkımızda
-          </ScrollLink>
-          <ScrollLink
-            to="iletisim"
-            spy={true}
-            smooth={true}
-            offset={-70}
-            duration={500}
-            className={`nav-link ${activeLink === "iletisim" ? "active" : ""}`}
-            onClick={() => handleLinkClick("iletisim")}
-          >
-            İletişim
-          </ScrollLink>
+          {menuItems.map((menuItem) => (
+            <ScrollLink
+              key={menuItem.target}
+              to={menuItem.target}
+              spy={true}
+              smooth={true}
+              offset={-70}
+              duration={500}
+              className={`nav-link ${activeLink === menuItem.target ? "active" : ""}`}
+              onClick={() => handleLinkClick(menuItem.target)}
+              onSetActive={(target) => handleSetActive(target)}
+            >
+              {menuItem.icon}
+              <span className="menu-item-label">{activeLink === menuItem.target && menuItem.label}</span>
+            </ScrollLink>
+          ))}
         </div>
 
-        <div className="d-flex align-items-center  ">
+        <div className="d-flex align-items-center">
           <input
             className="form-control me-2 search"
             type="search"
@@ -106,7 +88,7 @@ const Navbar = ({ onSearch }) => {
             onChange={(e) => setName(e.target.value)}
           />
           <button className="btn" type="submit" onClick={handleSearch}>
-          <FaSearch  className="btn_icon_navbar"/>
+            <FaSearch className="btn_icon_navbar" />
           </button>
         </div>
       </div>
