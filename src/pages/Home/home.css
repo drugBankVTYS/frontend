@@ -1,10 +1,10 @@
 :root {
   --bg-color: #ffffff;
   --second-bg-color: #c5c5c5;
-  --text-color: #000;
+  --text-color-home: #000;
   --main-color: rgb(0, 31, 87);
-  --button-color: #f300da;
-  --button-color2: #e300d4;
+  --button-color-home: #f82727;
+  --button-color-home2: #f82727;
 }
 
 .page-content {
@@ -74,16 +74,15 @@
   }
 }
 
-.my-button {
+.my-button-hero {
   position: absolute;
   left: 50%;
   padding: 10px 20px;
-  margin-top: 550px;
+  margin-top: 650px;
   border-radius: 8px;
-  border: 1px solid #000;
-  background-color: var(--button-color);
-  color: #fff !important;
-  border: 2px solid #000000;
+  border: 1px solid #000000; /* Use a single border property */
+  background-color: var(--button-color-home);
+  color: var(--button-color-home);
   cursor: pointer;
   transition: background-color 0.3s ease-in-out;
   display: flex;
@@ -91,10 +90,15 @@
   transform: translateX(-50%);
 }
 
-.my-button:hover {
-  background-color: var(--button-color);
-  color: #fff !important;
-  box-shadow: 0 0 1rem var(--button-color2);
+
+.my-button-hero:hover {
+  background-color: var(--button-color-home);
+  color: white !important;
+  box-shadow: 0 0 1rem var(--button-color-home2);
+}
+
+.my-link{
+  color: white;
 }
 
 .hero-section {

@@ -49,7 +49,6 @@ const Home = () => {
 
 
   const handleSearch = (name) => {
-    // Burada ismi alabilir ve Medicine bileşenine iletebilirsiniz
     console.log("Girilen İsim:", name);
 
   };
@@ -74,7 +73,7 @@ const Home = () => {
                         style={{ color: "white" }}
                       >
                         <Typewriter
-                          words={["DRUGBANK"]}
+                          words={["MEDSOFT"]}
                           loop={Infinity}
                           cursor
                           cursorStyle=""
@@ -88,12 +87,12 @@ const Home = () => {
                       </span>
                       <br />
                       <span className="text2">
-                        İlaçların Etkilyeci Dünyasına Hoşgeldiniz
+                        İlaçların Etkileyici Dünyasına Hoşgeldiniz
                       </span>
                     </div>
                   </div>
-                  <button className="my-button">
-                    <Link to="/drug">Hadi bu dünyayı keşfedelim</Link>
+                  <button className="my-button-hero">
+                    <Link className="my-link"  to="/drug" >Hadi bu dünyayı keşfedelim</Link>
                   </button>
                 </div>
               </div>

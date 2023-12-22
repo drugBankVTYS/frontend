@@ -5,6 +5,7 @@ import MedSoft from "./images/MedSoft.png";
 import "./styles/navbar.css";
 import { useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { FaSearch } from "react-icons/fa";
 
 const Navbar = ({ onSearch }) => {
   const location = useLocation();
@@ -100,12 +101,12 @@ const Navbar = ({ onSearch }) => {
           <input
             className="form-control me-2 search"
             type="search"
-            placeholder="Search"
+            placeholder="Acenocoumarol"
             aria-label="Search"
             onChange={(e) => setName(e.target.value)}
           />
           <button className="btn" type="submit" onClick={handleSearch}>
-            Search
+          <FaSearch  className="btn_icon_navbar"/>
           </button>
         </div>
       </div>
