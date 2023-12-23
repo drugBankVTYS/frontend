@@ -6,7 +6,7 @@
 .navbar-nav .nav-link {
   font-size: 18px;
   transition: font-size 0.3s ease-in-out, color 0.3s ease-in-out;
-  color: #909090;
+  color: #ffffff !important;
 }
 
 .navbar-nav .nav-link:hover,
@@ -20,8 +20,9 @@
 }
 
 .navbar {
-  border-bottom: 1px solid #000;
+  border-bottom: 0px solid #000 !important;
   box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.1);
+  background-color: transparent;
 }
 
 .logo {
@@ -29,13 +30,13 @@
 }
 
 .btn {
-  background-color: #f82727 !important  ;
+  background-color: #f82727 !important;
   color: #fff;
 }
 
 .btn:hover {
   background-color: #ff1e1e;
-  color: white !important;
+  color: white;
   box-shadow: 0 0 0.4rem #ff1e1e;
 }
 
@@ -51,6 +52,25 @@
   box-shadow: none !important;
 }
 
-.btn_icon_navbar{
+.btn_icon_navbar {
   align-items: center;
+}
+
+.navbar.scrolled {
+  background-color: #c70909 !important;
+  transition: background-color 0.3s ease;
+}
+
+.navbar.scrolled .navbar-brand img {
+  filter: invert(100%);
+}
+
+.navbar-light.scrolled {
+  background-color: transparent !important;
+  transition: background-color 0.3s ease;
+}
+
+.light-bg{
+  background-color: #000000 !important;
+  opacity: 0.7;
 }

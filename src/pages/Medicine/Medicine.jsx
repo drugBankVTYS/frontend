@@ -7,6 +7,7 @@ import SearchSection from "../../components/SearchSection";
 import { Link, useParams  } from "react-router-dom";
 import LoadingScreen from "../../components/LoadingScreen";
 import { useLocation } from 'react-router-dom';
+import SecondaryNavbar from "../../components/SecondaryNavbar";
 
 function Medicine (props)  {
   const [currentPage, setCurrentPage] = useState(1);
@@ -92,6 +93,7 @@ function Medicine (props)  {
         </div>
       ) : (
         <>
+          <SecondaryNavbar />
           <div className="search_section">
             <SearchSection />
           </div>
