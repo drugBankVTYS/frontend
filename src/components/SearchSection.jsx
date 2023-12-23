@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from "react";
 import "./styles/SearchSection.css";
 import { FaSearch } from "react-icons/fa";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
-const SearchSection = () => {
+const SearchSection = ({ onDataFetched }) => {
   const [searchText, setSearchText] = useState("");
   const [placeholderText, setPlaceholderText] = useState("");
   const typewriterTexts = ["Ara...", "İlaçlar...", "Moleküller Yapılar...", "Alerjiler..."];
   const [typewriterIndex, setTypewriterIndex] = useState(0);
   const [selectedOption, setSelectedOption] = useState(null);
+  const [data,setData] = useState([]);
 
   const secenekSec = (option) => {
     setSelectedOption(option);
@@ -38,9 +41,16 @@ const SearchSection = () => {
     return () => clearInterval(typingInterval);
   }, [typewriterIndex, typewriterTexts]);
 
-  const aramaYap = () => {
-    const input = document.getElementById("searchInput").value;
-    console.log("Arama yapılıyor: " + input);
+  const handleSearch = () => {
+  };
+  const navigate = useNavigate();
+
+  const aramaYap = async() => {
+    //console.log("Arama yapılıyor: " + searchText);
+    //console.log("Seçilen seçenek: " + selectedOption);
+    navigate(`/drug?q=${searchText}&selectedOption=${selectedOption}`);
+    window.location.reload();
+
   };
 
   return (
@@ -54,6 +64,7 @@ const SearchSection = () => {
 
       <div className="search-box">
         <input
+          id="searchInput"
           type="text"
           className="search-input"
           placeholder={typewriterTexts[typewriterIndex]}
