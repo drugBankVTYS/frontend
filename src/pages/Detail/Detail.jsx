@@ -5,6 +5,7 @@ import "./Detail.css";
 import resim from "./images/cells.jpg";
 import axios from "axios";
 import { useParams } from "react-router-dom";
+import SecondaryNavbar from "../../components/SecondaryNavbar";
 
 const DrugDetail = () => {
   const [data, setData] = useState([]);
@@ -55,7 +56,7 @@ const DrugDetail = () => {
 
   return (
     <div className="container mt-5">
-      <Navbar />
+      <SecondaryNavbar />
       <div className="row card_super_class">
         <Col md={6} className="rounded-circle-container">
           <img
