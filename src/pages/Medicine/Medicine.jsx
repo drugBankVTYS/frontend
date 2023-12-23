@@ -108,7 +108,7 @@ function Medicine(props) {
                     <Link to={`/drug_detail/${datas._id}`}>
                       <div
                         className="card-medicine"
-                        style={{ width: "25rem" }}
+                        style={{ width: "20rem" }}
                         onClick={() => handleCardClick(datas._id)}
                       >
                         <img

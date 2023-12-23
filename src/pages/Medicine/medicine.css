@@ -3,7 +3,7 @@ body {
 }
 
 .card-medicine {
-  border: 1px solid rgb(0, 0, 0);
+  border: 2px solid rgb(0, 0, 0);
   border-radius: 30px; 
   padding: 16px; 
   margin: 80px 5px; 
