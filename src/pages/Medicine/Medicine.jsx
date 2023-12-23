@@ -128,34 +128,38 @@ function Medicine(props) {
               // Veri yoksa mesaj göster
               <p>No data available.</p>
             )}
-            {/* Pagination */}
-            <ul className="pagination">
-              <li className="page-item">
-                <a href="#" className="page-link" onClick={prePage}>
-                  Önceki
-                </a>
-              </li>
-              {getPageNumbers().map((n, i) => (
-                <li
-                  className={`page-item ${currentPage === n ? "activep" : ""}`}
-                  key={i}
-                >
-                  <a
-                    href="#"
-                    className="page-link"
-                    onClick={() => changePage(n)}
-                  >
-                    {" "}
-                    {n}{" "}
+            {/* Pagination ve Sayfa Bilgisi */}
+            <div className="pagination-container">
+              <ul className="pagination">
+                <li className="page-item">
+                  <a href="#" className="page-link" onClick={prePage}>
+                    Önceki
                   </a>
                 </li>
-              ))}
-              <li className="page-item">
-                <a href="#" className="page-link" onClick={nextPage}>
-                  Sonraki
-                </a>
-              </li>
-            </ul>
+                {getPageNumbers().map((n, i) => (
+                  <li
+                    className={`page-item ${
+                      currentPage === n ? "activep" : ""
+                    }`}
+                    key={i}
+                  >
+                    <a
+                      href="#"
+                      className="page-link"
+                      onClick={() => changePage(n)}
+                    >
+                      {" "}
+                      {n}{" "}
+                    </a>
+                  </li>
+                ))}
+                <li className="page-item">
+                  <a href="#" className="page-link" onClick={nextPage}>
+                    Sonraki
+                  </a>
+                </li>
+              </ul>
+            </div>
           </div>
         </>
       )}

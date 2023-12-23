@@ -46,7 +46,7 @@ body {
 }
 
 .page-link {
-  background-color: rgb(249, 97, 252);
+  background-color: #f82727;
   color: #f6f6f6;
 }
 
@@ -63,6 +63,43 @@ body {
   justify-content: center;
   height: 100%;
   margin-top: 200px;
+}
+
+
+.pagination-container {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pagination {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.page-item {
+  margin: 0;
+}
+
+.page-link {
+  padding: 10px 15px;
+  text-decoration: none;
+  cursor: pointer;
+  color: #000000;
+  margin-bottom: 30px;
+}
+
+.page-link:hover {
+  color: #000000; 
+}
+
+.activep .page-link {
+  background-color: #f3f3f3;
+  border: 1px solid  #000000;
+  color: #000000; 
 }
 
 
