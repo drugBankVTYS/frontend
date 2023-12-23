@@ -4,12 +4,13 @@ import Navbar from "../../components/Navbar";
 import "../../components/styles.css";
 import "./medicine.css";
 import SearchSection from "../../components/SearchSection";
-import { Link, useParams  } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import LoadingScreen from "../../components/LoadingScreen";
-import { useLocation } from 'react-router-dom';
+import { useLocation } from "react-router-dom";
 import SecondaryNavbar from "../../components/SecondaryNavbar";
+import resim from "./images/MedSoft.png";
 
-function Medicine (props)  {
+function Medicine(props) {
   const [currentPage, setCurrentPage] = useState(1);
   const [data, setData] = useState([]);
   const [totalPages, setTotalPages] = useState(1);
@@ -17,8 +18,7 @@ function Medicine (props)  {
 
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
-  const drugName = queryParams.get('q');
-
+  const drugName = queryParams.get("q");
 
   const datasPerPage = 10;
   const pagesToShow = 10;
@@ -29,14 +29,14 @@ function Medicine (props)  {
 
   const fetchData = async () => {
     try {
-      if(!drugName){
+      if (!drugName) {
         setIsLoading(true);
-      const response = await axios.get(
-        `http://localhost:3001/api/alldrugs?pageNumber=${currentPage}`
-      );
-      setData(response.data.drugs);
-      setTotalPages(Math.ceil(response.data.count / datasPerPage));
-      }  else{
+        const response = await axios.get(
+          `http://localhost:3001/api/alldrugs?pageNumber=${currentPage}`
+        );
+        setData(response.data.drugs);
+        setTotalPages(Math.ceil(response.data.count / datasPerPage));
+      } else {
         setIsLoading(true);
         const response = await axios.get(
           `http://localhost:3001/api/showdrug?name=${drugName}`
@@ -84,8 +84,7 @@ function Medicine (props)  {
   };
 
   return (
-    <div >
-     
+    <div>
       {isLoading ? (
         // Loading durumu
         <div className="loading-container">
@@ -109,16 +108,17 @@ function Medicine (props)  {
                     <Link to={`/drug_detail/${datas._id}`}>
                       <div
                         className="card-medicine"
-                        style={{ width: "30rem" }}
+                        style={{ width: "20rem" }}
                         onClick={() => handleCardClick(datas._id)}
                       >
-                        <div>{datas.drug_name}</div>
-                        <h2>{datas.drug_name}</h2>
-                        <p>Drug ID: {datas.drug_id}</p>
-                        <p>Drug State: {datas.drug_state}</p>
-                        <h3>Target Information</h3>
-                        <p>Target Name: {datas.target_name}</p>
-                        <p>Target UniProt: {datas.target_uniprot}</p>
+                        <img
+                          src={resim}
+                          alt={datas.drug_name}
+                          className="card-img-top"
+                        />
+                        <div className="card-body">
+                          <h5 className="card-title">{datas.drug_name}</h5>
+                        </div>
                       </div>
                     </Link>
                   </div>
@@ -128,30 +128,38 @@ function Medicine (props)  {
               // Veri yoksa mesaj göster
               <p>No data available.</p>
             )}
-            {/* Pagination */}
-            <ul className="pagination">
-              <li className="page-item">
-                <a href="#" className="page-link" onClick={prePage}>
-                  Önceki
-                </a>
-              </li>
-              {getPageNumbers().map((n, i) => (
-                <li
-                  className={`page-item ${currentPage === n ? "activep" : ""}`}
-                  key={i}
-                >
-                  <a href="#" className="page-link" onClick={() => changePage(n)}>
-                    {" "}
-                    {n}{" "}
+            {/* Pagination ve Sayfa Bilgisi */}
+            <div className="pagination-container">
+              <ul className="pagination">
+                <li className="page-item">
+                  <a href="#" className="page-link" onClick={prePage}>
+                    Önceki
                   </a>
                 </li>
-              ))}
-              <li className="page-item">
-                <a href="#" className="page-link" onClick={nextPage}>
-                  Sonraki
-                </a>
-              </li>
-            </ul>
+                {getPageNumbers().map((n, i) => (
+                  <li
+                    className={`page-item ${
+                      currentPage === n ? "activep" : ""
+                    }`}
+                    key={i}
+                  >
+                    <a
+                      href="#"
+                      className="page-link"
+                      onClick={() => changePage(n)}
+                    >
+                      {" "}
+                      {n}{" "}
+                    </a>
+                  </li>
+                ))}
+                <li className="page-item">
+                  <a href="#" className="page-link" onClick={nextPage}>
+                    Sonraki
+                  </a>
+                </li>
+              </ul>
+            </div>
           </div>
         </>
       )}

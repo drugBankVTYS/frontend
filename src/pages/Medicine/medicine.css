@@ -1,34 +1,42 @@
 body {
-  background-color: #f6f6f6; /* Gri tonunda arka plan rengi */
+  background-color: #f6f6f6;
 }
+
 .card-medicine {
-  border: 5px solid rgb(249, 97, 252); /* 2 piksel kalınlığında siyah renkli kenarlık */
-  border-radius: 20px; /* Köşeleri yuvarlatma */
-  padding: 32px; /* İçeriği kenarlıklardan ayırmak için iç boşluk */
-  margin-top: 150px;
-  margin-left: 5px;
-  margin-right: 5px;
+  border: 2px solid rgb(0, 0, 0);
+  border-radius: 30px; 
+  padding: 16px; 
+  margin: 80px 5px; 
   font-weight: bold;
-  transition: transform 0.5s ease-in-out; /* Animasyon için geçiş efekti ekleyin */
+  transition: transform 0.5s ease-in-out;
 }
 
 .card-medicine:hover {
-  transform: scale(1.1);
-
-  box-shadow: 0 0 10px rgba(103, 2, 99, 0.9);
+  transform: scale(1.04);
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.9);
 }
+
 .row {
-  margin: 1px; /* Kartların arasındaki boşluğu negatif margin ile azaltın */
+  margin: 1px;
 }
 
 .card-medicine div,
 .card-medicine h2,
 .card-medicine p,
 .card-medicine h3 {
-  font-family: "Open Sans", sans-serif !important; /* Örnek bir font türü, ihtiyaca göre değiştirilebilir */
-  color: rgb(0, 0, 0) !important; /* Yazı rengi */
-  font-size: 24px !important; /* Yazı boyutu */
+  font-family: "Open Sans", sans-serif !important;
+  color: rgb(0, 0, 0) !important;
+  font-size: 24px !important;
+  text-align: center; /* Yazıları ortala */
 }
+
+.card-medicine .card-title{
+  text-align: center;
+  margin-top: 15px;
+  font-weight: bold;
+  font-size: 25px;
+}
+
 
 .pagination {
   display: flex;
@@ -38,20 +46,16 @@ body {
 }
 
 .page-link {
-  background-color: rgb(249, 97, 252);
+  background-color: #f82727;
   color: #f6f6f6;
 }
 
 .search_section {
   margin-top: 120px;
- /* padding-top: 100px;
-  padding-bottom: 100px;
-  background-image: url('./images/background_search4.png');*/
   background-size: cover;
   background-position: center;
   z-index: -1;
 }
-
 
 .loading-container {
   display: flex;
@@ -60,4 +64,42 @@ body {
   height: 100%;
   margin-top: 200px;
 }
+
+
+.pagination-container {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pagination {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.page-item {
+  margin: 0;
+}
+
+.page-link {
+  padding: 10px 15px;
+  text-decoration: none;
+  cursor: pointer;
+  color: #000000;
+  margin-bottom: 30px;
+}
+
+.page-link:hover {
+  color: #000000; 
+}
+
+.activep .page-link {
+  background-color: #f3f3f3;
+  border: 1px solid  #000000;
+  color: #000000; 
+}
+
 
