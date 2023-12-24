@@ -113,3 +113,43 @@ body {
 .content-wrapper {
   margin-top: 20px;
 }
+
+.pagination-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.pagination {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.page-item {
+  margin: 0 5px;
+}
+
+.page-link {
+  color: #000000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.page-link:hover {
+  text-decoration: underline;
+}
+
+.activep {
+  font-weight: bold;
+}
+
+.card-medicine {
+  transition: transform 0.3s;
+}
+
+.card-medicine:hover {
+  transform: scale(1.05);
+}

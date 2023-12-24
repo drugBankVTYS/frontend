@@ -9,6 +9,8 @@ import LoadingScreen from "../../components/LoadingScreen";
 import { useLocation, useNavigate } from "react-router-dom";
 import SecondaryNavbar from "../../components/SecondaryNavbar";
 import resim from "./images/MedSoft__2_-removebg-preview.png";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons";
 
 function Medicine(props) {
   const [currentPage, setCurrentPage] = useState(1);
@@ -108,7 +110,7 @@ function Medicine(props) {
                   {data.map((datas) => (
                     <div
                       key={datas.drug_id}
-                      className="d-flex justify-content-center col-4 mb-4" // Kartlar arasında boşluk oluşturmak için margin-bottom ekleyin
+                      className="d-flex justify-content-center col-4 mb-4"
                     >
                       <Link to={`/drug_detail/${datas._id}`}>
                         <div
@@ -136,7 +138,7 @@ function Medicine(props) {
             ) : (
               <p>Veri bulunamadı.</p>
             )}
-            {/**Pagination Section */}
+            {/* Pagination Section */}
             <div className="pagination-container">
               <p>
                 Sayfa {currentPage} / {totalPages}
@@ -144,6 +146,7 @@ function Medicine(props) {
               <ul className="pagination">
                 <li className="page-item">
                   <a href="#" className="page-link" onClick={prePage}>
+                    <FontAwesomeIcon icon={faChevronLeft} />
                     Önceki
                   </a>
                 </li>
@@ -167,6 +170,7 @@ function Medicine(props) {
                 <li className="page-item">
                   <a href="#" className="page-link" onClick={nextPage}>
                     Sonraki
+                    <FontAwesomeIcon icon={faChevronRight} />
                   </a>
                 </li>
               </ul>
