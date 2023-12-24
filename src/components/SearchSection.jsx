@@ -48,7 +48,7 @@ const SearchSection = ({ onDataFetched }) => {
   const aramaYap = async() => {
     //console.log("Arama yapılıyor: " + searchText);
     //console.log("Seçilen seçenek: " + selectedOption);
-    navigate(`/drug?q=${searchText}&selectedOption=${selectedOption}`);
+    navigate(`/drug?q=${searchText}`);
     window.location.reload();
 
   };
@@ -77,26 +77,7 @@ const SearchSection = ({ onDataFetched }) => {
         </div>
       </div>
 
-      <div className="options">
-        <button
-          className={`option ${selectedOption === "ilaç" ? "selected" : ""}`}
-          onClick={() => secenekSec("ilaç")}
-        >
-          İlaç
-        </button>
-        <button
-          className={`option ${selectedOption === "molekül" ? "selected" : ""}`}
-          onClick={() => secenekSec("molekül")}
-        >
-          Molekül
-        </button>
-        <button
-          className={`option ${selectedOption === "alerji" ? "selected" : ""}`}
-          onClick={() => secenekSec("alerji")}
-        >
-          Alerji
-        </button>
-      </div>
+      
     </div>
   );
 };
