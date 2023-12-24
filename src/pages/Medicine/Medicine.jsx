@@ -104,31 +104,33 @@ function Medicine(props) {
             {data.length > 0 ? (
               // Veri varsa göster
               <div>
-                <div className="row">
-                  {data.map((datas) => (
-                    <div
-                      key={datas.drug_id}
-                      className="d-flex justify-content-center col-4"
-                    >
-                      <Link to={`/drug_detail/${datas._id}`}>
-                        <div
-                          className="card-medicine"
-                          style={{ width: "20rem" }}
-                          onClick={() => handleCardClick(datas._id)}
-                        >
-                          <img
-                            src={resim}
-                            alt={datas.drug_name}
-                            className="card-img-top"
-                          />
-                          <div className="card-body">
-                            <h5 className="card-title">{datas.drug_name}</h5>
-                          </div>
-                        </div>
-                      </Link>
-                    </div>
-                  ))}
-                </div>
+               <div className="row">
+  {data.map((datas) => (
+    <div
+      key={datas.drug_id}
+      className="d-flex justify-content-center col-4 mb-4" // Kartlar arasında boşluk oluşturmak için margin-bottom ekleyin
+    >
+      <Link to={`/drug_detail/${datas._id}`}>
+        <div
+          className="card-medicine"
+          style={{ width: "20rem" }}
+          onClick={() => handleCardClick(datas._id)}
+        >
+          <img
+            src={resim}
+            alt={datas.drug_name}
+            className="card-img-top"
+          />
+          <div className="card-body">
+            <h3 className="card-title">{datas.drug_name}</h3>
+            <p className="card-text3">Daha fazlası için tıklayınız...</p>
+          </div>
+         
+        </div>
+      </Link>
+    </div>
+  ))}
+</div>
               </div>
             ) : (
               // Veri yoksa mesaj göster
