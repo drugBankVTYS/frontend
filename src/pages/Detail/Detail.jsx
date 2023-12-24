@@ -86,7 +86,7 @@ const DrugDetail = () => {
 
           <Card className="drug_card mt-3 rounded title" id="fourth_card">
             <Card.Body>
-              <Card.Title>İlaç Şirketi : {data.drug_kingdom}</Card.Title>
+              <Card.Title>İlaç  Sınıflandırılması : {data.drug_kingdom}</Card.Title>
             </Card.Body>
           </Card>
           <Card className="drug_card mt-3 rounded title" id="fifth_card">

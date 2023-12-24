@@ -6,7 +6,7 @@ import "./medicine.css";
 import SearchSection from "../../components/SearchSection";
 import { Link, useParams } from "react-router-dom";
 import LoadingScreen from "../../components/LoadingScreen";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import SecondaryNavbar from "../../components/SecondaryNavbar";
 import resim from "./images/MedSoft.png";
 
@@ -15,37 +15,41 @@ function Medicine(props) {
   const [data, setData] = useState([]);
   const [totalPages, setTotalPages] = useState(1);
   const [isLoading, setIsLoading] = useState(true);
-
+  const [searchData, setSearchData] = useState([]);
+  const Navigate = useNavigate();
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
   const drugName = queryParams.get("q");
+  const[count,setCount] = useState(0);
 
   const datasPerPage = 10;
   const pagesToShow = 10;
 
   useEffect(() => {
     fetchData();
-  }, [currentPage]);
+  }, [currentPage, searchData]);
 
   const fetchData = async () => {
     try {
-      if (!drugName) {
-        setIsLoading(true);
-        const response = await axios.get(
-          `http://localhost:3001/api/alldrugs?pageNumber=${currentPage}`
-        );
-        setData(response.data.drugs);
-        setTotalPages(Math.ceil(response.data.count / datasPerPage));
-      } else {
+      if (drugName != null) {
         setIsLoading(true);
         const response = await axios.get(
           `http://localhost:3001/api/showdrug?name=${drugName}`
         );
         setData(response.data.drugs);
+        setCount(response.data.count);
+        setTotalPages(Math.ceil(response.data.count / datasPerPage));
+      } else {
+        setIsLoading(true);
+        const response = await axios.get(
+          `http://localhost:3001/api/alldrugs?pageNumber=${currentPage}`
+        );
+        setData(response.data.drugs);
+        setCount(response.data.count);
         setTotalPages(Math.ceil(response.data.count / datasPerPage));
       }
     } catch (error) {
-      console.error("Error fetching data:", error.response || error);
+      console.error("Data fetching error:", error.response || error);
     } finally {
       setIsLoading(false);
     }
@@ -94,42 +98,45 @@ function Medicine(props) {
         <>
           <SecondaryNavbar />
           <div className="search_section">
-            <SearchSection />
+            <SearchSection onDataFetched={setSearchData} />
           </div>
           <div className="content-wrapper">
             {data.length > 0 ? (
               // Veri varsa göster
-              <div className="row">
-                {data.map((datas) => (
-                  <div
-                    key={datas.drug_id}
-                    className="d-flex justify-content-center col-4"
-                  >
-                    <Link to={`/drug_detail/${datas._id}`}>
-                      <div
-                        className="card-medicine"
-                        style={{ width: "20rem" }}
-                        onClick={() => handleCardClick(datas._id)}
-                      >
-                        <img
-                          src={resim}
-                          alt={datas.drug_name}
-                          className="card-img-top"
-                        />
-                        <div className="card-body">
-                          <h5 className="card-title">{datas.drug_name}</h5>
+              <div>
+                <div className="row">
+                  {data.map((datas) => (
+                    <div
+                      key={datas.drug_id}
+                      className="d-flex justify-content-center col-4"
+                    >
+                      <Link to={`/drug_detail/${datas._id}`}>
+                        <div
+                          className="card-medicine"
+                          style={{ width: "20rem" }}
+                          onClick={() => handleCardClick(datas._id)}
+                        >
+                          <img
+                            src={resim}
+                            alt={datas.drug_name}
+                            className="card-img-top"
+                          />
+                          <div className="card-body">
+                            <h5 className="card-title">{datas.drug_name}</h5>
+                          </div>
                         </div>
-                      </div>
-                    </Link>
-                  </div>
-                ))}
+                      </Link>
+                    </div>
+                  ))}
+                </div>
               </div>
             ) : (
               // Veri yoksa mesaj göster
-              <p>No data available.</p>
+              <p>Veri bulunamadı.</p>
             )}
-            {/* Pagination ve Sayfa Bilgisi */}
+            {/* Sayfalama ve Sayfa Bilgisi */}
             <div className="pagination-container">
+              <p>Sayfa {currentPage} / {totalPages}</p>
               <ul className="pagination">
                 <li className="page-item">
                   <a href="#" className="page-link" onClick={prePage}>
