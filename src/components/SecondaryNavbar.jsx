@@ -7,12 +7,12 @@ import MedSoft from "./images/MedSoft__2_-removebg-preview.png";
 import "./styles/secondarynavbar.css";
 
 const SecondaryNavbar = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrolled = window.scrollY > 0;
-      setIsScrolled(scrolled);
+      const isScrolled = window.scrollY > 0;
+      setScrolled(isScrolled);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -23,7 +23,7 @@ const SecondaryNavbar = () => {
   }, []);
 
   return (
-    <nav className={`navbar navbar-expand-lg fixed-top ${isScrolled ? "light-bg" : "navbar-light bg-transparent"}`}>
+    <nav className={`navbar navbar-expand-lg navbar-light fixed-top `}>
       <div className="container-fluid">
         <Link className="navbar-brand logo" to="/">
           <img
@@ -37,7 +37,7 @@ const SecondaryNavbar = () => {
         {/* Ana Sayfa bağlantısı */}
         <div className="ml-auto">
           <Link to="/" className="nav-link">
-            <FontAwesomeIcon icon={faHome} style={{width:"30px", height:"30px", marginTop:"5px",  color:"white"}} />
+            <FontAwesomeIcon icon={faHome} style={{width:"30px", height:"30px", marginTop:"5px" , color:"white"}} />
           </Link>
         </div>
       </div>
