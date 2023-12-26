@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Col, Card, Button, Modal } from "react-bootstrap";
-import Navbar from "../../components/Navbar";
 import "./Detail.css";
-import resim from "./images/cells.jpg";
+import resim from "./images/cell2.jpg";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import SecondaryNavbar from "../../components/SecondaryNavbar";
@@ -26,6 +25,8 @@ const DrugDetail = () => {
       fetchImage(data.drug_id);
     }
   }, [data]);
+
+ 
 
   const fetchData = async (id) => {
     try {
@@ -91,6 +92,8 @@ const DrugDetail = () => {
   };
 
   return (
+    
+
     <div className="container mt-5">
       {/* Render LoadingScreen while loading */}
       {loading ? (
@@ -99,8 +102,8 @@ const DrugDetail = () => {
         // Render the rest of the component once data and image are loaded
         <>
           <SecondaryNavbar />
-          <div className="row card_super_class">
-            <Col md={6} className="rounded-circle-container">
+          <div className="row card_super_class ">
+            <Col md={6} className="rounded-circle-container mol-img">
               <img
                 src={image || TeamImage}
                 alt="Drug"
@@ -195,11 +198,11 @@ const DrugDetail = () => {
                 </Card.Body>
               </Card>
             </Col>
-            <Col md={6} className="rounded-circle-container">
+            <Col md={6} className="rounded-circle-container second-img">
               <img
                 src={resim}
                 alt="Drug"
-                className="img-fluid rounded-circle"
+                className="rounded-circle"
               />
             </Col>
           </div>
@@ -230,7 +233,7 @@ const DrugDetail = () => {
                       )}
                     </div>
                   ) : (
-                    <span>Veri bulunamadı</span>
+                    <span>Güncel veri bulunmamaktadır. Zamanla eklenecektir. Sabrınız ve ilginiz için teşekkürler</span>
                   )}
                 </Card.Text>
               </Card.Body>
@@ -251,7 +254,7 @@ const DrugDetail = () => {
                     ))}
                   </div>
                 ) : (
-                  <span>Veri bulunamadı</span>
+                  <span>Güncel veri bulunmamaktadır. Zamanla eklenecektir. Sabrınız ve ilginiz için teşekkürler</span>
                 )}
               </Modal.Body>
             </Modal>
@@ -265,7 +268,7 @@ const DrugDetail = () => {
                   data.drug_food_interactions.length != 0 ? (
                     data.drug_food_interactions
                   ) : (
-                    <span>Veri bulunamadı</span>
+                    <span>Güncel veri bulunmamaktadır. Zamanla eklenecektir. Sabrınız ve ilginiz için teşekkürler</span>
                   )}
                 </Card.Text>
               </Card.Body>
@@ -278,7 +281,7 @@ const DrugDetail = () => {
                   data.drug_pathways.length != 0 ? (
                     data.drug_pathways
                   ) : (
-                    <span>Veri bulunamadı</span>
+                    <span>Güncel veri bulunmamaktadır. Zamanla eklenecektir. Sabrınız ve ilginiz için teşekkürler</span>
                   )}
                 </Card.Text>
               </Card.Body>
@@ -307,7 +310,7 @@ const DrugDetail = () => {
                       )}
                     </div>
                   ) : (
-                    <span>Data içeriği bir dizi değil veya data boş.</span>
+                    <span>Güncel veri bulunmamaktadır. Zamanla eklenecektir. Sabrınız ve ilginiz için teşekkürler</span>
                   )}
                 </Card.Text>
               </Card.Body>
@@ -340,7 +343,7 @@ const DrugDetail = () => {
                   </div>
                 ) : (
                   <span style={{ fontSize: "14px" }}>
-                    Data içeriği bir dizi değil veya data boş.
+                    Güncel veri bulunmamaktadır. Zamanla eklenecektir. Sabrınız ve ilginiz için teşekkürler
                   </span>
                 )}
               </Modal.Body>
