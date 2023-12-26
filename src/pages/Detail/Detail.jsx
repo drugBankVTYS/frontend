@@ -6,13 +6,13 @@ import resim from "./images/cells.jpg";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import SecondaryNavbar from "../../components/SecondaryNavbar";
-import LoadingScreen from "../../components/LoadingScreen"; // Import the LoadingScreen component
+import LoadingScreen from "../../components/LoadingScreen"; 
 import TeamImage from "./images/MedSoft.png";
 
 const DrugDetail = () => {
   const [data, setData] = useState([]);
   const [image, setImage] = useState(null);
-  const [loading, setLoading] = useState(true); // Add loading state
+  const [loading, setLoading] = useState(true); 
   const { id } = useParams();
 
   useEffect(() => {

@@ -23,7 +23,7 @@ const SecondaryNavbar = () => {
   }, []);
 
   return (
-    <nav className={`navbar navbar-expand-lg navbar-light fixed-top `}>
+    <nav className={`navbar navbar-expand-lg navbar-light fixed-top secondary-navbar`}>
       <div className="container-fluid">
         <Link className="navbar-brand logo" to="/">
           <img
