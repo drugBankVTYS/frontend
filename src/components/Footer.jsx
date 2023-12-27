@@ -30,7 +30,7 @@ const Footer = () => {
           <Col lg={4} className="text-center border-right" id="about">
             <h3 id="about_header">Daha fazla bilgi</h3>
             <div id="about_section">
-              <Link to="/vizyon">Hakkımızda</Link>
+              <Link to="/hakkimizda">Hakkımızda</Link>
               <Link to="/haklar">Kullanıcı Şartları</Link>
               <Link to="/vision">Vizyon-Misyon</Link>
             </div>
