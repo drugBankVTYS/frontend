@@ -3,19 +3,18 @@ import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import "./styles/footer.css";
 import { FaLinkedin, FaGithub, FaEnvelope } from "react-icons/fa";
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
     <footer className="mt-5 footer">
       <Container className="footer_in">
         <Row>
-         
           <Col lg={4} className="text-center border-right">
             <div className="footer_left">
-              Mailinizi yazınız, biz sizinle
-              iletişime geçelim
+              Mailinizi yazınız, biz sizinle iletişime geçelim
             </div>
-           
+
             <form action="#">
               <div className="input-box">
                 <input
@@ -28,13 +27,12 @@ const Footer = () => {
             </form>
           </Col>
 
-          
           <Col lg={4} className="text-center border-right" id="about">
             <h3 id="about_header">Daha fazla bilgi</h3>
             <div id="about_section">
-              <a href="#">Hakkımızda</a> 
-              <a href="#">Kullanıcı Şartları</a>
-              <a href="#">Vizyon-Misyon</a>
+              <Link to="/vizyon">Hakkımızda</Link>
+              <Link to="/kullanici-sartlari">Kullanıcı Şartları</Link>
+              <Link to="/vision">Vizyon-Misyon</Link>
             </div>
           </Col>
 
