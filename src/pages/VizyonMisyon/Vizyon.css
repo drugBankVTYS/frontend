@@ -1,0 +1,68 @@
+/* Vizyon.css */
+
+.custom-vision-page {
+  margin-top: 150px;
+}
+
+.custom-vision-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin: 20px;
+}
+
+/* Sol Menü */
+.custom-left-menu {
+  width: 40%;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.custom-left-menu img {
+  width: auto;
+  height: 80%;
+  align-self: flex-end;
+  transform: rotate(-90deg);
+  margin-top: 80px;
+  margin-right: 0px;
+}
+
+/* Right menu */
+.custom-right-menu {
+  width: 55%;
+}
+
+.custom-right-menu > div {
+  margin-bottom: 30px;
+}
+
+/* Header */
+.custom-misyon-header,
+.custom-vizyon-header,
+.custom-degerler-header {
+  font-size: 28px;
+  text-decoration: underline;
+  font-style: italic;
+  color: #bf0426db;
+  text-shadow: 2px 2px 4px rgba(165, 2, 2, 0.5);
+  margin-bottom: 10px;
+}
+
+/* Paragraph Styles */
+.custom-misyon-content,
+.custom-vizyon-content,
+.custom-degerler-content {
+  font-size: 18px;
+  color: #041451db;
+  line-height: 1.6;
+}
+
+.custom-degerler-header:last-child {
+  margin-top: 30px;
+}
+
+.custom-degerler-content:last-child {
+  margin-bottom: 0;
+}
