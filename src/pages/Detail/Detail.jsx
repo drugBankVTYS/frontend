@@ -5,14 +5,58 @@ import resim from "./images/cell2.jpg";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import SecondaryNavbar from "../../components/SecondaryNavbar";
-import LoadingScreen from "../../components/LoadingScreen"; 
+import LoadingScreen from "../../components/LoadingScreen";
 import TeamImage from "./images/MedSoft.png";
+import { createViewer } from "3dmol";
 
 const DrugDetail = () => {
   const [data, setData] = useState([]);
   const [image, setImage] = useState(null);
-  const [loading, setLoading] = useState(true); 
+  const [loading, setLoading] = useState(true);
   const { id } = useParams();
+
+  const [smiles, setSmiles] = useState("");
+  const [pdbData, setPdbData] = useState("");
+  const [show3DModal, setShow3DModal] = useState(false);
+
+  const handleInputChange = (event) => {
+    setSmiles(event.target.value);
+  };
+
+  const fetchMolecule = async () => {
+    try {
+      const response = await axios.get(
+        `http://localhost:8000/draw_molecule/${data.drug_id}`,
+        {
+          responseType: "text",
+        }
+      );
+      setPdbData(response.data);
+      setShow3DModal(true);
+    } catch (error) {
+      console.error("Error fetching molecule:", error);
+    }
+  };
+
+  const handleClose3DModal = () => {
+    setShow3DModal(false);
+  };
+
+  const displayMolecule = (pdbData) => {
+    // Use 3Dmol.js to visualize the molecule
+    const viewer = createViewer(document.getElementById("viewer3DModal"));
+    viewer.addModel(pdbData, "pdb");
+    viewer.setStyle({
+      stick: {
+        color: "gray", // Çubuk rengi
+        ends: {
+          color: "red",
+        },
+      },
+    });
+    viewer.zoomTo();
+    viewer.render();
+  };
 
   useEffect(() => {
     fetchData(id);
@@ -20,13 +64,17 @@ const DrugDetail = () => {
   }, [id]);
 
   useEffect(() => {
+    if (show3DModal) {
+      displayMolecule(pdbData);
+    }
+  }, [show3DModal]);
+
+  useEffect(() => {
     // Once data is set, fetch the image
     if (data.drug_id) {
       fetchImage(data.drug_id);
     }
   }, [data]);
-
- 
 
   const fetchData = async (id) => {
     try {
@@ -54,7 +102,7 @@ const DrugDetail = () => {
       const base64Image = btoa(
         new Uint8Array(response.data).reduce(
           (data, byte) => data + String.fromCharCode(byte),
-          ''
+          ""
         )
       );
 
@@ -92,8 +140,6 @@ const DrugDetail = () => {
   };
 
   return (
-    
-
     <div className="container mt-5">
       {/* Render LoadingScreen while loading */}
       {loading ? (
@@ -103,7 +149,11 @@ const DrugDetail = () => {
         <>
           <SecondaryNavbar />
           <div className="row card_super_class ">
-            <Col md={6} className="rounded-circle-container mol-img">
+            <Col
+              md={6}
+              className="rounded-circle-container mol-img"
+              onClick={fetchMolecule}
+            >
               <img
                 src={image || TeamImage}
                 alt="Drug"
@@ -116,36 +166,24 @@ const DrugDetail = () => {
                   <Card.Title>İlaç ID : {data.drug_id}</Card.Title>
                 </Card.Body>
               </Card>
-              <Card
-                className="drug_card mt-3 rounded title"
-                id="second_card"
-              >
+              <Card className="drug_card mt-3 rounded title" id="second_card">
                 <Card.Body>
                   <Card.Title>İlaç Adı :{data.drug_name} </Card.Title>
                 </Card.Body>
               </Card>
-              <Card
-                className="drug_card mt-3 rounded title"
-                id="third_card"
-              >
+              <Card className="drug_card mt-3 rounded title" id="third_card">
                 <Card.Body>
                   <Card.Title>İlaç Formu : {data.drug_state} </Card.Title>
                 </Card.Body>
               </Card>
-              <Card
-                className="drug_card mt-3 rounded title"
-                id="fourth_card"
-              >
+              <Card className="drug_card mt-3 rounded title" id="fourth_card">
                 <Card.Body>
                   <Card.Title>
                     İlaç Sınıflandırılması : {data.drug_kingdom}
                   </Card.Title>
                 </Card.Body>
               </Card>
-              <Card
-                className="drug_card mt-3 rounded title"
-                id="fifth_card"
-              >
+              <Card className="drug_card mt-3 rounded title" id="fifth_card">
                 <Card.Body>
                   <Card.Title>İlaç Sınıfı :{data.drug_superclass} </Card.Title>
                 </Card.Body>
@@ -159,38 +197,26 @@ const DrugDetail = () => {
                   <Card.Title>Hedef Adı :{data.target_name} </Card.Title>
                 </Card.Body>
               </Card>
-              <Card
-                className="drug_card mt-3 rounded title"
-                id="second_card"
-              >
+              <Card className="drug_card mt-3 rounded title" id="second_card">
                 <Card.Body>
                   <Card.Title>
                     Hedef UniProt : {data.target_uniprot}{" "}
                   </Card.Title>
                 </Card.Body>
               </Card>
-              <Card
-                className="drug_card mt-3 rounded title"
-                id="third_card"
-              >
+              <Card className="drug_card mt-3 rounded title" id="third_card">
                 <Card.Body>
                   <Card.Title>
                     Hedef Gen İsmi : {data.target_gene_name}{" "}
                   </Card.Title>
                 </Card.Body>
               </Card>
-              <Card
-                className="drug_card mt-3 rounded title"
-                id="fourth_card"
-              >
+              <Card className="drug_card mt-3 rounded title" id="fourth_card">
                 <Card.Body>
                   <Card.Title>Eylem : {data.action} </Card.Title>
                 </Card.Body>
               </Card>
-              <Card
-                className="drug_card mt-3 rounded title"
-                id="fifth_card"
-              >
+              <Card className="drug_card mt-3 rounded title" id="fifth_card">
                 <Card.Body>
                   <Card.Title>
                     Hücre Lokalizasyonu : {data.cell_loc}{" "}
@@ -199,11 +225,7 @@ const DrugDetail = () => {
               </Card>
             </Col>
             <Col md={6} className="rounded-circle-container second-img">
-              <img
-                src={resim}
-                alt="Drug"
-                className="rounded-circle"
-              />
+              <img src={resim} alt="Drug" className="rounded-circle" />
             </Col>
           </div>
           <div className="info_section">
@@ -233,15 +255,15 @@ const DrugDetail = () => {
                       )}
                     </div>
                   ) : (
-                    <span>Güncel veri bulunmamaktadır. Zamanla eklenecektir. Sabrınız ve ilginiz için teşekkürler</span>
+                    <span>
+                      Güncel veri bulunmamaktadır. Zamanla eklenecektir.
+                      Sabrınız ve ilginiz için teşekkürler
+                    </span>
                   )}
                 </Card.Text>
               </Card.Body>
             </Card>
-            <Modal
-              show={showModalToxicity}
-              onHide={handleCloseModalToxicity}
-            >
+            <Modal show={showModalToxicity} onHide={handleCloseModalToxicity}>
               <Modal.Header closeButton>
                 <Modal.Title>İlaç Toksikliği Detayları</Modal.Title>
               </Modal.Header>
@@ -254,7 +276,10 @@ const DrugDetail = () => {
                     ))}
                   </div>
                 ) : (
-                  <span>Güncel veri bulunmamaktadır. Zamanla eklenecektir. Sabrınız ve ilginiz için teşekkürler</span>
+                  <span>
+                    Güncel veri bulunmamaktadır. Zamanla eklenecektir. Sabrınız
+                    ve ilginiz için teşekkürler
+                  </span>
                 )}
               </Modal.Body>
             </Modal>
@@ -268,7 +293,10 @@ const DrugDetail = () => {
                   data.drug_food_interactions.length != 0 ? (
                     data.drug_food_interactions
                   ) : (
-                    <span>Güncel veri bulunmamaktadır. Zamanla eklenecektir. Sabrınız ve ilginiz için teşekkürler</span>
+                    <span>
+                      Güncel veri bulunmamaktadır. Zamanla eklenecektir.
+                      Sabrınız ve ilginiz için teşekkürler
+                    </span>
                   )}
                 </Card.Text>
               </Card.Body>
@@ -281,15 +309,15 @@ const DrugDetail = () => {
                   data.drug_pathways.length != 0 ? (
                     data.drug_pathways
                   ) : (
-                    <span>Güncel veri bulunmamaktadır. Zamanla eklenecektir. Sabrınız ve ilginiz için teşekkürler</span>
+                    <span>
+                      Güncel veri bulunmamaktadır. Zamanla eklenecektir.
+                      Sabrınız ve ilginiz için teşekkürler
+                    </span>
                   )}
                 </Card.Text>
               </Card.Body>
             </Card>
-            <Card
-              className="drug_card mt-1 rounded"
-              onClick={handleShowMore}
-            >
+            <Card className="drug_card mt-1 rounded" onClick={handleShowMore}>
               <Card.Body>
                 <Card.Title className="title">İlaç İlişkileri</Card.Title>
                 <Card.Text>
@@ -301,16 +329,16 @@ const DrugDetail = () => {
                           <div key={index}>{interaction}</div>
                         ))}
                       {data.drug_interactions.length > showAll && (
-                        <Button
-                          variant="link"
-                          className="detail_button"
-                        >
+                        <Button variant="link" className="detail_button">
                           Daha fazla oku
                         </Button>
                       )}
                     </div>
                   ) : (
-                    <span>Güncel veri bulunmamaktadır. Zamanla eklenecektir. Sabrınız ve ilginiz için teşekkürler</span>
+                    <span>
+                      Güncel veri bulunmamaktadır. Zamanla eklenecektir.
+                      Sabrınız ve ilginiz için teşekkürler
+                    </span>
                   )}
                 </Card.Text>
               </Card.Body>
@@ -327,13 +355,21 @@ const DrugDetail = () => {
                 }}
               >
                 <Modal.Title
-                  style={{ fontSize: "18px", width: "900px", background: "white" }}
+                  style={{
+                    fontSize: "18px",
+                    width: "900px",
+                    background: "white",
+                  }}
                 >
                   İlaç İlişkileri Detayları
                 </Modal.Title>
               </Modal.Header>
               <Modal.Body
-                style={{ fontSize: "16px", width: "900px", background: "white" }}
+                style={{
+                  fontSize: "16px",
+                  width: "900px",
+                  background: "white",
+                }}
               >
                 {data && Array.isArray(data.drug_interactions) ? (
                   <div>
@@ -343,12 +379,24 @@ const DrugDetail = () => {
                   </div>
                 ) : (
                   <span style={{ fontSize: "14px" }}>
-                    Güncel veri bulunmamaktadır. Zamanla eklenecektir. Sabrınız ve ilginiz için teşekkürler
+                    Güncel veri bulunmamaktadır. Zamanla eklenecektir. Sabrınız
+                    ve ilginiz için teşekkürler
                   </span>
                 )}
               </Modal.Body>
             </Modal>
           </div>
+          <Modal show={show3DModal} onHide={handleClose3DModal} size="xl">
+            <Modal.Header closeButton>
+              <Modal.Title>3D Yapı</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+              <div
+                id="viewer3DModal"
+                style={{ width: "100%", height: "500px" }}
+              ></div>
+            </Modal.Body>
+          </Modal>
         </>
       )}
     </div>
