@@ -31,7 +31,7 @@ const Footer = () => {
             <h3 id="about_header">Daha fazla bilgi</h3>
             <div id="about_section">
               <Link to="/vizyon">Hakkımızda</Link>
-              <Link to="/kullanici-sartlari">Kullanıcı Şartları</Link>
+              <Link to="/haklar">Kullanıcı Şartları</Link>
               <Link to="/vision">Vizyon-Misyon</Link>
             </div>
           </Col>

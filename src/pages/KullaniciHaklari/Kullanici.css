@@ -1,0 +1,43 @@
+.kullanici-container {
+    margin-top: 150px;
+  }
+  
+  .kullanici-kullanici {
+    border: 4px solid #dc8b2f;
+    box-shadow: 5px 5px 15px #041451db;
+    font-size: 20px;
+    color: #041451db;
+    width: 75rem;
+    margin: 20px 0;
+  }
+  
+  .kullanici-kullanici img {
+    width: 100%;
+    max-width: 350px; 
+    height: auto; 
+    margin: 0;
+  }
+  
+  .kullanici-card-text {
+    font-size: 20px;
+    margin: 20px;
+    margin-bottom: 20px;
+    color: #000000db;
+  }
+  
+  .kullanici-card-body {
+    border: 4px solid #dc8b2f;
+    margin: 30px;
+  }
+  
+  .kullanici-card-img-top {
+    margin-bottom: 20px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .user-terms-page-content-kullanici {
+    margin-top: 20px;
+  }
+  
