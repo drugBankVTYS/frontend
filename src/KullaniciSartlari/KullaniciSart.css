@@ -1,0 +1,43 @@
+
+.user-terms-page-content{
+  margin-top: 150px;
+}
+.kullanici {
+    border: 4px solid #dc8b2f;
+    border: 2px solid #dc8b2f; /* Çerçeve rengi */
+
+    box-shadow: 5px 5px 15px #041451db; /* X, Y offset ve blur değeri ile gölge */
+    font-size: 20px;
+    color: #041451db;
+    width: 75rem;
+    margin: 20px 0;
+    
+  }
+
+  .kullanici img{
+  
+    width: 350px;
+    height: 150px;
+    margin: auto;
+    
+  }
+  .card-text{
+    font-size: 20px;
+    margin: 20px;
+    margin-bottom: 20px;
+    color: #000000db;
+  }
+
+  .card-body{
+    border: 4px solid #dc8b2f;
+  }
+
+  .card-img-top {
+    margin-bottom: 20px; 
+  }
+  
+  .card-body {
+    margin-top: 20px; 
+  }
+  
+  

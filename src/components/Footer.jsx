@@ -3,6 +3,7 @@ import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import "./styles/footer.css";
 import { FaLinkedin, FaGithub, FaEnvelope } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -32,9 +33,9 @@ const Footer = () => {
           <Col lg={4} className="text-center border-right" id="about">
             <h3 id="about_header">Daha fazla bilgi</h3>
             <div id="about_section">
-              <a href="#">Hakkımızda</a> 
-              <a href="#">Kullanıcı Şartları</a>
-              <a href="#">Vizyon-Misyon</a>
+              <a href="">Hakkımızda</a> 
+             <Link to="/user-terms">Kullanıcı Şartları</Link> 
+              <Link to="/vision-mission">Vizyon-Misyon</Link>
             </div>
           </Col>
 

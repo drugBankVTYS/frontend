@@ -1,0 +1,50 @@
+
+   *{
+    margin: 0%;
+    padding: 0%;
+   }
+   .vision-page-content{
+    margin-top: 100px;
+   }
+   .container{
+    display: flex;
+  }
+
+  .left-menu{
+    width: 40%;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+  }
+  .right-menu{
+    flex: 1;
+  }
+
+  .right-menu{
+    margin-top: 30px;
+    flex: 1;
+  }
+
+  .right-menu p{
+    font-size: 20px;
+    color: #041451db;
+  }
+
+  .right-menu h2{
+    font-size: 65px;
+    text-decoration: underline;
+    font-style: italic;
+    color: #bf0426db;
+    text-shadow: 2px 2px 4px rgba(165, 2, 2, 0.5);
+    
+  }
+  .left-menu img{
+   width: auto;
+   height: 80%;
+   align-self: flex-end;
+  transform: rotate(-90deg);
+    margin-top: 150px;
+    margin-right: 0px;
+  }
