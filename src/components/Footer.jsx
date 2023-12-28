@@ -30,18 +30,18 @@ const Footer = () => {
           <Col lg={4} className="text-center border-right" id="about">
             <h3 id="about_header">Daha fazla bilgi</h3>
             <div id="about_section">
-              <Link to="/hakkimizda">Hakkımızda</Link>
-              <Link to="/haklar">Kullanıcı Şartları</Link>
+              <Link to="/about">Hakkımızda</Link>
+              <Link to="/rights">Kullanıcı Şartları</Link>
               <Link to="/vision">Vizyon-Misyon</Link>
             </div>
           </Col>
 
           <Col lg={4} className="text-center">
             <div className="social-media">
-              <a href="your-linkedin-profile" className="linkedn">
+              <a href="https://www.linkedin.com/in/muhammedsametakgul/" className="linkedn">
                 <FaLinkedin />
               </a>
-              <a href="your-github-profile" className="github">
+              <a href="https://github.com/drugBankVTYS" className="github">
                 <FaGithub />
               </a>
               <a href="mailto:your-email@example.com" className="mail">
