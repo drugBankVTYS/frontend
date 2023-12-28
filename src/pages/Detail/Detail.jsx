@@ -35,6 +35,7 @@ const DrugDetail = () => {
       setShow3DModal(true);
     } catch (error) {
       console.error("Error fetching molecule:", error);
+      setLoading(false);
     }
   };
 
@@ -66,6 +67,7 @@ const DrugDetail = () => {
   useEffect(() => {
     if (show3DModal) {
       displayMolecule(pdbData);
+      setLoading(false);
     }
   }, [show3DModal]);
 
@@ -73,6 +75,8 @@ const DrugDetail = () => {
     // Once data is set, fetch the image
     if (data.drug_id) {
       fetchImage(data.drug_id);
+      setLoading(false);
+
     }
   }, [data]);
 

@@ -153,3 +153,12 @@ body {
 .card-medicine:hover {
   transform: scale(1.05);
 }
+
+.sayfa-sayisi{
+  border: 1px solid rgb(0, 0, 0); 
+  color: black;
+  border-radius: 5px;
+  margin-right: 30px;
+  padding: 10px;
+  margin-bottom: 30px; 
+}

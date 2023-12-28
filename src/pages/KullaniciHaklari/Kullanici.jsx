@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import SecondaryNavbar from "../../components/SecondaryNavbar";
 import "./Kullanici.css";
 
 const Kullanici = () => {
+  useEffect(() => {
+    // Sayfa yüklendiğinde en üstüne kaydır
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className="kullanici-container">
       <SecondaryNavbar />

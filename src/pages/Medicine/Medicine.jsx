@@ -140,7 +140,7 @@ function Medicine(props) {
             )}
             {/* Pagination Section */}
             <div className="pagination-container">
-              <p>
+              <p className="sayfa-sayisi">
                 Sayfa {currentPage} / {totalPages}
               </p>
               <ul className="pagination">

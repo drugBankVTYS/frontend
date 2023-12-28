@@ -1,13 +1,15 @@
 .loading-screen {
   position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  z-index: 9999;
-  background: rgba(255, 255, 255, 0.8);
-  padding: 20px;
-  border-radius: 10px;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(249, 0, 0, 0.8); /* Overlay arka plan rengi */
+  z-index: 1000; /* Overlay'in diğer öğelerin üzerinde olmasını sağlar */
+
 }
 
   .loading-spinner {

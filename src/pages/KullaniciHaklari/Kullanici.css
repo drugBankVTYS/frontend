@@ -3,7 +3,7 @@
   }
   
   .kullanici-kullanici {
-    border: 4px solid #dc8b2f;
+    border: 4px solid #000000 !important;
     box-shadow: 5px 5px 15px #041451db;
     font-size: 20px;
     color: #041451db;
@@ -26,7 +26,7 @@
   }
   
   .kullanici-card-body {
-    border: 4px solid #dc8b2f;
+    border: 4px solid #000000;
     margin: 30px;
   }
   
